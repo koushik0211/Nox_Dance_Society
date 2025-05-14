@@ -34,7 +34,8 @@ const app = express();
     // and your backend on http://localhost:5001 (or whatever you set in .env).
     // Without CORS, the browser would block these requests for security reasons.
     const allowedOrigins = [
-        'http://localhost:3000', // Your frontend development URL
+        'http://localhost:3000',
+        'https://nox-dance-frontend.onrender.com' // Your frontend development URL
         // Add your deployed frontend URL here later, e.g.:
         // 'https://your-nox-frontend.onrender.com'
     ];
