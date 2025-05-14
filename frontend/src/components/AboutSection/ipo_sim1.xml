@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-22T14:00:00.000Z" agent="AI Assistant ModSimple UC" etag="ipo_uc_modsimple_v1" version="23.1.5" type="device">
+  <diagram name="Moderately Simple IPO Analysis" id="ipo_modsimple_diagram_1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Actors -->
+        <mxCell id="ms_ipo_actor_1" value="Retail Investor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="350" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_ipo_actor_2" value="Data Sources" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="350" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Main Use Cases -->
+        <mxCell id="ms_ipo_uc_1" value="View IPO List and Details" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="100" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="ms_ipo_uc_2" value="Filter Search IPOs" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="100" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_ipo_uc_3" value="Get Buy Not Buy Analysis (10 Percent Target)" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="250" width="160" height="90" as="geometry" />
+        </mxCell>
+         <mxCell id="ms_ipo_uc_4" value="Compare IPO Performance (Past)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="410" width="160" height="80" as="geometry" />
+        </mxCell>
+
+
+        <!-- Supporting Use Cases -->
+         <mxCell id="ms_ipo_uc_sys_1" value="Fetch Data (IPO and Market)" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="550" y="340" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="ms_ipo_edge_1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_actor_1" target="ms_ipo_uc_1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="ms_ipo_edge_2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_actor_1" target="ms_ipo_uc_3">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="ms_ipo_edge_3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_actor_1" target="ms_ipo_uc_4">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms_ipo_edge_4" value="extend" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_uc_2" target="ms_ipo_uc_1">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms_ipo_edge_5" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_uc_1" target="ms_ipo_uc_sys_1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms_ipo_edge_6" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_uc_3" target="ms_ipo_uc_sys_1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="ms_ipo_edge_7" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_uc_4" target="ms_ipo_uc_sys_1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="ms_ipo_edge_8" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ms_ipo_uc_sys_1" target="ms_ipo_actor_2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

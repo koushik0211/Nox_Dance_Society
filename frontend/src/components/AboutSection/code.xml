@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-22T10:15:00.000Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36" etag="unIqueEtAg123_v3" version="23.1.5" type="device">
+  <diagram name="Page-1" id="uniqueDiagramId123_v3">
+    <mxGraphModel dx="1434" dy="786" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-1" value="Retail Investor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-2" value="Manage Profile
+(Set Risk Tolerance, Link Broker)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="100" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-3" value="Configure Trading Bot
+(Select Strategies, Set Parameters)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-4" value="Analyze IPO
+(View GMP, Subscription, Recommendation)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="300" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-5" value="Optimize Portfolio
+(Run MPT, View Allocation)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="400" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-6" value="Monitor Dashboard
+(View Market Data, Portfolio, Alerts)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="500" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-7" value="Initiate/Stop Automated Trading" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="600" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-8" value="Perform Backtesting" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="200" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-9" value="View Trade History &amp; Performance" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="500" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-10" value="Receive System Alerts
+(Trade Execution, Market Events)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="600" width="140" height="70" as="geometry" />
+        </mxCell>
+        <!-- Connections for Retail Investor -->
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-11" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="450" as="sourcePoint" />
+            <mxPoint x="310" y="135" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-12" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="460" as="sourcePoint" />
+            <mxPoint x="310" y="235" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-13" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="460" as="sourcePoint" />
+            <mxPoint x="310" y="335" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-14" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="460" as="sourcePoint" />
+            <mxPoint x="310" y="435" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-15" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="460" as="sourcePoint" />
+            <mxPoint x="310" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-16" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="220" y="460" as="sourcePoint" />
+            <mxPoint x="310" y="635" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-17" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-8">
+           <mxGeometry width="50" height="50" relative="1" as="geometry">
+             <mxPoint x="220" y="460" as="sourcePoint" />
+             <mxPoint x="500" y="235" as="targetPoint" />
+           </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-18" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="470" as="sourcePoint" />
+            <mxPoint x="500" y="535" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-19" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-1" target="4p8r3dJ7qWzXkLmN0oP9-10">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="230" y="470" as="sourcePoint" />
+            <mxPoint x="500" y="635" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <!-- Include Relationship -->
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-20" value="<<include>>" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-3" target="4p8r3dJ7qWzXkLmN0oP9-8">
+           <mxGeometry width="160" relative="1" as="geometry">
+              <mxPoint x="450" y="235" as="sourcePoint" /> <!-- Adjusted source point slightly -->
+              <mxPoint x="500" y="235" as="targetPoint" /> <!-- Adjusted target point slightly -->
+              <!-- REMOVED Array as points block -->
+           </mxGeometry>
+        </mxCell>
+        <!-- External System Actors -->
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-21" value="Brokerage API" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-22" value="Market Data API" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="670" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <!-- Connections to External Systems -->
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-23" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-7" target="4p8r3dJ7qWzXkLmN0oP9-21">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="635" as="sourcePoint"/>
+            <mxPoint x="670" y="330" as="targetPoint"/>
+            <!-- REMOVED Array as points block -->
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-24" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-6" target="4p8r3dJ7qWzXkLmN0oP9-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+             <mxPoint x="450" y="535" as="sourcePoint"/>
+             <mxPoint x="670" y="430" as="targetPoint"/>
+             <!-- REMOVED Array as points block -->
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4p8r3dJ7qWzXkLmN0oP9-25" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="4p8r3dJ7qWzXkLmN0oP9-4" target="4p8r3dJ7qWzXkLmN0oP9-22">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+             <mxPoint x="450" y="335" as="sourcePoint"/>
+             <mxPoint x="670" y="430" T="targetPoint"/>
+             <!-- REMOVED Array as points block -->
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

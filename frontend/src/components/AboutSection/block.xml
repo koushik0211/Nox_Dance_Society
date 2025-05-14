@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-22T14:45:00.000Z" agent="AI Assistant Block Diagram" etag="block_diag_v1" version="23.1.5" type="device">
+  <diagram name="Block Diagram" id="block_diagram_1">
+    <mxGraphModel dx="1800" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- External Actors / Systems -->
+        <mxCell id="actor-user" value="Retail Investor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-market-api" value="Market Data API(s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-ipo-api" value="IPO Data Source(s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-broker-api" value="Brokerage API(s)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="650" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ext-news-api" value="News/Sentiment API(s) (Optional)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="350" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Main System Components (Rectangle Group potentially) -->
+        <mxCell id="sys-ui" value="User Interface (Web Dashboard)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="300" y="400" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-backend" value="Backend Server / Core Logic API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="500" y="400" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-db" value="Database (User Data, Config, Trades, Models)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="700" y="500" width="100" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-data-acq" value="Data Acquisition Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="250" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="sys-data-prep" value="Data Preprocessing Module" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="700" y="350" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-ai-ml" value="AI/ML Modules" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;size=0.25;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="700" y="100" width="140" height="90" as="geometry" />
+        </mxCell>
+         <mxCell id="sys-ai-sub-predict" value="Stock Prediction Engine" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="50" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-ai-sub-ipo" value="IPO Analysis Engine" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="110" width="120" height="50" as="geometry" />
+        </mxCell>
+         <mxCell id="sys-ai-sub-portfolio" value="Portfolio Optimization Engine (MPT)" style="ellipse;whiteSpace=wrap;html=1;fontSize=10;fillColor=#e1d5e7;strokeColor=#9673a6;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="170" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-trading" value="Trading Execution Module (Simulated)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="700" y="650" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sys-risk" value="Risk Management Module" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="500" y="550" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <mxCell id="edge-1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="actor-user" target="sys-ui">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-2" value="User Requests / Config" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-ui" target="sys-backend">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-3" value="Data / Results" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="sys-backend" target="sys-ui">
+           <mxGeometry relative="1" as="geometry">
+             <mxPoint x="470" y="435" as="sourcePoint"/>
+             <mxPoint x="300" y="435" as="targetPoint"/>
+            <Array as="points">
+               <mxPoint x="570" y="480"/>
+               <mxPoint x="370" y="480"/>
+             </Array>
+           </mxGeometry>
+         </mxCell>
+        <mxCell id="edge-4" value="Control / Data Req" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-backend" target="sys-data-acq">
+          <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="600" y="285"/>
+              </Array>
+          </mxGeometry>
+        </mxCell>
+         <mxCell id="edge-5" value="Control / Data Req" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-backend" target="sys-ai-ml">
+          <mxGeometry relative="1" as="geometry">
+               <Array as="points">
+                 <mxPoint x="600" y="145"/>
+              </Array>
+          </mxGeometry>
+        </mxCell>
+         <mxCell id="edge-6" value="Control / Trade Signal" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-backend" target="sys-trading">
+          <mxGeometry relative="1" as="geometry">
+              <Array as="points">
+                 <mxPoint x="600" y="685"/>
+              </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="Data Fetch Req" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-acq" target="ext-market-api">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-8" value="Data Fetch Req" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-acq" target="ext-ipo-api">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-9" value="Data Fetch Req" style="endArrow=classic;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="sys-data-acq" target="ext-news-api">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-10" value="Raw Data" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-acq" target="sys-data-prep">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-11" value="Prepared Data" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-prep" target="sys-ai-ml">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-12" value="Store / Retrieve" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-prep" target="sys-db">
+             <mxGeometry relative="1" as="geometry"/>
+         </mxCell>
+         <mxCell id="edge-13" value="Store / Retrieve Models / Results" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-ai-ml" target="sys-db">
+             <mxGeometry relative="1" as="geometry">
+                <Array as="points">
+                   <mxPoint x="800" y="145"/>
+                </Array>
+             </mxGeometry>
+         </mxCell>
+         <mxCell id="edge-14" value="Analysis Results / Signals" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-ai-ml" target="sys-backend">
+             <mxGeometry relative="1" as="geometry"/>
+         </mxCell>
+        <mxCell id="edge-15" value="Store / Retrieve Config / Trades" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-backend" target="sys-db">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-16" value="Simulated Order" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-trading" target="ext-broker-api">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-17" value="Store Trades" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-trading" target="sys-db">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-18" value="Apply Rules" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-backend" target="sys-risk">
+            <mxGeometry relative="1" as="geometry"/>
+         </mxCell>
+        <mxCell id="edge-19" value="Check Result" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-risk" target="sys-backend">
+            <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-20" value="" style="endArrow=none;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="sys-ai-ml" target="sys-ai-sub-predict">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-21" value="" style="endArrow=none;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="sys-ai-ml" target="sys-ai-sub-ipo">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="edge-22" value="" style="endArrow=none;html=1;rounded=0;dashed=1;" edge="1" parent="1" source="sys-ai-ml" target="sys-ai-sub-portfolio">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="edge-23" value="Holdings Sync" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1" source="sys-data-acq" target="ext-broker-api">
+            <mxGeometry relative="1" as="geometry">
+                 <Array as="points">
+                   <mxPoint x="800" y="300"/>
+                   <mxPoint x="950" y="680"/>
+                 </Array>
+            </mxGeometry>
+         </mxCell>
+
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

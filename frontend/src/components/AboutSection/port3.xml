@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-22T12:20:00.000Z" agent="AI Assistant Comment Fix" etag="pa_uc_v4_comment_fix" version="23.1.5" type="device">
+  <diagram name="Portfolio Analysis" id="pa_diagram_1_fix4">
+    <mxGraphModel dx="1700" dy="1000" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Actors -->
+        <mxCell id="pa-actor-1" value="Retail Investor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-actor-2" value="Brokerage API" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="150" width="30" height="60" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-actor-3" value="Market Data API" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="950" y="400" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Main Use Cases -->
+        <mxCell id="pa-uc-1" value="View Portfolio Overview (Value, Charts)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="50" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-2" value="Manage Holdings (Add or Remove or Sync)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="160" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-3" value="Sync Portfolio with Broker" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-4" value="Run MPT Optimization" style="ellipse;whiteSpace=wrap;html=1;fontStyle=1" vertex="1" parent="1">
+          <mxGeometry x="300" y="290" width="160" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pa-uc-5" value="View Recommended Rebalancing" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="420" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-6" value="Execute Rebalancing Trades" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="420" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-7" value="View Risk and Diversification Metrics" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="550" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-8" value="Export Portfolio Data" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="680" width="160" height="80" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-9" value="Set Portfolio Alert (e.g., Deviation)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="550" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Supporting Use Cases (System Internal/Implicit) -->
+        <mxCell id="pa-uc-sys-1" value="Fetch Holdings from Broker" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="750" y="160" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-sys-2" value="Fetch Historical Price Return Data" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="750" y="290" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-sys-3" value="Calculate Covariance Matrix" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="550" y="290" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="pa-uc-sys-4" value="Perform Mean-Variance Optimization" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="750" y="380" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="pa-uc-sys-5" value="Place Orders via Broker API" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="750" y="455" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Connections : Fixed double hyphen in comment -->
+        <mxCell id="pa-edge-1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-4">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-4" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-5">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-5" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-7">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-6" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-actor-1" target="pa-uc-8">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pa-edge-7" value="extend" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-3" target="pa-uc-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-8" value="extend" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-6" target="pa-uc-5">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-9" value="extend" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-9" target="pa-uc-7">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pa-edge-10" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-3" target="pa-uc-sys-1">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="pa-edge-11" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-4" target="pa-uc-sys-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="pa-edge-12" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-4" target="pa-uc-sys-3">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="pa-edge-13" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-4" target="pa-uc-sys-4">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="pa-edge-14" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-6" target="pa-uc-sys-5">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+         <mxCell id="pa-edge-15" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-7" target="pa-uc-sys-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="pa-edge-16" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-sys-1" target="pa-actor-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-17" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-sys-5" target="pa-actor-2">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="pa-edge-18" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="pa-uc-sys-2" target="pa-actor-3">
+           <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

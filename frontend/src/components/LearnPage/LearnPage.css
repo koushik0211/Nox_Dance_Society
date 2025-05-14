@@ -1,0 +1,314 @@
+/* src/components/LearnPage/LearnPage.css */
+
+/* Wrapper for the entire Learn page view */
+.learn-page-wrapper {
+    min-height: 100vh;
+    /* Styles from your learn.css (originally from audi.css body) */
+    background-color: #030105; /* Darker page background */
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(100, 30, 200, 0.06) 0%, transparent 25%), /* Adjusted alpha and size */
+        radial-gradient(circle at 90% 80%, rgba(140, 70, 220, 0.05) 0%, transparent 25%); /* Adjusted alpha and size */
+    color: #e0e0e0; 
+    position: relative; 
+    overflow-x: hidden; 
+    display: flex; 
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif; 
+}
+
+/* This div contains the actual scrollable content of the page */
+.learn-page-content {
+    padding: 80px 20px 60px; 
+    width: 100%;
+    max-width: 1400px; 
+    margin: 0 auto; 
+    flex-grow: 1;
+    position: relative; 
+    z-index: 1; /* Content above .nox-background-effect */
+}
+
+/* This is the large "NOX" background effect, styled as per your .nox-background from learn.css */
+.nox-background-effect { /* Applied to the motion.div in LearnPage.js */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40vw; /* From your learn.css */
+    color: rgba(124, 58, 205, 0.12); /* From your learn.css, potentially adjusted alpha */
+    z-index: 0; 
+    font-weight: 900; /* From your learn.css */
+    letter-spacing: 2vw; /* From your learn.css */
+    animation: noxGlowLearnPage 8s infinite alternate; 
+    pointer-events: none;
+    font-family: 'Poppins', sans-serif; 
+    opacity: 0; /* Initial for Framer Motion, JS will animate to 1 */
+    /* Text content "NOX" is set in the JS file for the div with this class */
+}
+
+@keyframes noxGlowLearnPage { 
+    0%, 100% { opacity: 0.25; filter: blur(1.5px); } /* Adjusted opacity and blur */
+    50% { opacity: 0.7; filter: blur(0px); }   
+}
+/* Vertical text styles are removed as the element is removed from JS */
+
+
+/* Header Styling (Enhanced, matching your learn.css .main-title intent) */
+.learn-page-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+    position: relative;
+}
+.learn-page-main-title {
+    position: relative;
+    font-size: clamp(3.5rem, 8vw, 6rem); 
+    font-weight: 800; 
+    background: linear-gradient(to right, #fff, #a855f7, #7c3acd); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.15em; 
+    text-transform: uppercase;
+    filter: drop-shadow(0 0 18px rgba(124, 58, 205, 0.35)); 
+    line-height: 1.1;
+    margin-bottom: 0rem;
+}
+.learn-page-society-text {
+    position: relative;
+    font-size: clamp(1rem, 2.2vw, 1.5rem); 
+    letter-spacing: clamp(0.5em, 1.5vw, 1em); 
+    text-transform: uppercase;
+    color: rgba(230, 230, 230, 0.8); 
+    margin-top: 0.1rem;
+    padding-left: clamp(0.5em, 1vw, 1em); 
+    font-weight: 300;
+}
+.learn-page-header-accent { 
+    width: 120px;
+    height: 3.5px;
+    background: linear-gradient(90deg, #7c3acd, #a855f7);
+    margin: 1.3rem auto 0;
+    border-radius: 2px;
+}
+
+/* Style Sections */
+.learn-style-section { 
+    margin-bottom: 4.5rem; 
+}
+.learn-style-section__title {
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem); 
+    font-weight: 700;
+    color: #e5e7eb; 
+    text-transform: capitalize; 
+    margin-bottom: 2.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid rgba(168, 85, 247, 0.25);
+    display: inline-block; 
+    position: relative;
+}
+.learn-style-section__title::after { 
+    content: ''; position: absolute; left: 0; bottom: -2px; 
+    width: 60px; height: 2px; background: #a855f7;
+}
+.no-tutorials-message {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    color: #888;
+}
+
+
+/* Tutorial Card Container */
+.tutorial-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); 
+    gap: 2.5rem; 
+}
+
+/* Tutorial Card Styling - with SUBTLE CSS hover */
+.tutorial-card { 
+    background: rgba(22, 18, 33, 0.92); 
+    border: 1px solid rgba(168, 85, 247, 0.15); 
+    border-radius: 12px; 
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3); 
+    display: flex; 
+    flex-direction: column; 
+    position: relative;
+    /* CSS transitions for properties changed by CSS :hover */
+    transition: background-color 0.35s ease-out, 
+                border-color 0.35s ease-out,
+                box-shadow 0.35s ease-out,
+                transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* For Framer Motion compatibility if needed */
+}
+/* Removed ::before conic gradient border */
+
+.tutorial-card:hover {
+    /* Framer Motion's whileHover handles transform: y and scale (from TutorialCard.js) */
+    /* This CSS hover handles background, border, and shadow changes */
+    background-color: rgba(28, 22, 40, 0.97); /* Slightly lighter/richer on hover */
+    border-color: rgba(168, 85, 247, 0.35); /* More prominent border on hover */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), /* Enhanced base shadow */
+                0 0 25px rgba(168, 85, 247, 0.2); /* More prominent purple glow */
+}
+
+/* Video Area and Controls */
+.tutorial-card__video-area { 
+    position: relative; 
+    width: 100%; 
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #0a080f; 
+    cursor: pointer;
+}
+.video-player-wrapper { 
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    display: flex; align-items: center; justify-content: center;
+}
+.tutorial-video-element { 
+    width: 100%; height: 100%; 
+    object-fit: cover; 
+    background-color: #000;
+}
+
+.video-controls {
+    position: absolute; 
+    bottom: 8px; 
+    left: 50%;
+    transform: translateX(-50%); 
+    display: flex; 
+    gap: 10px;
+    background-color: rgba(0,0,0,0.55); 
+    padding: 6px 10px;
+    border-radius: 20px; 
+    opacity: 0; 
+    transition: opacity 0.3s ease-in-out; 
+    z-index: 10; 
+}
+.tutorial-card__video-area:hover .video-controls,
+.tutorial-video-element:focus-within + .video-controls { 
+    opacity: 1; 
+}
+.control-button {
+    background: none; 
+    border: none; 
+    color: #e0e0e0; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
+    padding: 5px;
+    display: flex; align-items: center; justify-content: center;
+    transition: color 0.2s ease;
+}
+.control-button:hover { color: #c084fc; }
+
+.video-overlay-gradient {
+    position: absolute; 
+    bottom: 0; left: 0; 
+    width: 100%; height: 50%; 
+    background: linear-gradient(to bottom, transparent 10%, rgba(22, 18, 33, 0.98) 95%); 
+    pointer-events: none; 
+    z-index: 5; 
+}
+
+/* Card Content (title, meta, description, tags) */
+.tutorial-card__content { 
+    padding: 1.25rem 1.5rem 1.5rem; 
+    flex-grow: 1; 
+    display: flex; flex-direction: column; 
+    position: relative; z-index: 6;
+}
+.tutorial-card__title {
+    font-size: 1.4rem; 
+    font-weight: 700; 
+    color: #fff;
+    margin-bottom: 0.6rem; 
+    line-height: 1.3;
+}
+.tutorial-card__meta {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 0.5rem 1.2rem; 
+    font-size: 0.8rem; 
+    color: #b0aac0; 
+    margin-bottom: 0.8rem; 
+    align-items: center;
+}
+.tutorial-card__instructor-link {
+    display: inline-flex; 
+    align-items: center; 
+    gap: 0.4em;
+    color: #d8b4fe; 
+    text-decoration: none; 
+    font-weight: 600; 
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+    padding: 3px 0; 
+}
+.tutorial-card__instructor-link.no-link { 
+    cursor: default; 
+    color: #b0aac0; 
+}
+.tutorial-card__instructor-link:not(.no-link):hover { 
+    color: #fff; 
+    text-shadow: 0 0 5px #a855f7;
+}
+.insta-icon-instructor { 
+    margin-left: 0.4em; 
+    font-size: 1em; 
+    opacity: 0.8; 
+}
+
+.meta-icon { 
+    color: #a855f7; 
+    font-size: 0.95em; 
+}
+.tutorial-card__difficulty {
+    display: flex; align-items: center; gap: 0.4em; padding: 0.25em 0.65em;
+    border-radius: 4px; background-color: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.25); font-weight: 500;
+}
+.tutorial-card__difficulty--beginner { color: #a7f3d0; border-color: #34d39933; background-color: #34d3991a;}
+.tutorial-card__difficulty--intermediate { color: #fef08a; border-color: #facc1533; background-color: #facc151a;}
+.tutorial-card__difficulty--advanced { color: #fda4af; border-color: #f43f5e33; background-color: #f43f5e1a;}
+.tutorial-card__difficulty--all-levels { color: #bfdbfe; border-color: #60a5fa33; background-color: #60a5fa1a;}
+
+.tutorial-card__description {
+    font-size: 0.9rem; 
+    line-height: 1.6; 
+    color: #c5c0d1;
+    margin-bottom: 0.8rem; 
+    max-height: 4.8em; /* Approx 3 lines */
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    transition: max-height 0.4s ease-in-out;
+}
+.tutorial-card__description.expanded { max-height: 20em; }
+.tutorial-card__expand-toggle {
+    background: none; border: none; color: #a855f7; font-size: 0.8rem;
+    cursor: pointer; padding: 0.25rem 0; margin-bottom: 1rem;
+    display: inline-flex; align-items: center; gap: 0.3em; font-weight: 500;
+}
+.tutorial-card__expand-toggle:hover { color: #c084fc; }
+
+.tutorial-card__tags { 
+    margin-top: auto; 
+    padding-top: 0.75rem; 
+    display: flex; flex-wrap: wrap; gap: 0.6rem; 
+}
+.tag-chip {
+    background-color: rgba(168, 85, 247, 0.2); color: #e9d5ff; 
+    padding: 0.35em 0.75em; border-radius: 12px; font-size: 0.75rem; font-weight: 500;
+}
+
+/* Responsive for Cards and Sections */
+@media screen and (max-width: 768px) {
+    .learn-page-content { padding: 60px 15px 40px; }
+    .learn-style-section__title { font-size: clamp(1.6rem, 3.2vw, 2rem); margin-bottom: 1.5rem; }
+    .tutorial-card-container { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; }
+    .learn-page-main-title { font-size: clamp(2.5rem, 7vw, 3.5rem); }
+    .learn-page-society-text { font-size: clamp(0.9rem, 2vw, 1.1rem); }
+}
+@media screen and (max-width: 480px) {
+    .tutorial-card__title { font-size: 1.25rem; }
+    .tutorial-card__description { font-size: 0.85rem; }
+    .nox-background-effect { display: none; } 
+}

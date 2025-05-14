@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" modified="2024-02-22T13:00:00.000Z" agent="AI Assistant Overall UC" etag="overall_uc_v1" version="23.1.5" type="device">
+  <diagram name="Overall Project" id="overall_diagram_1">
+    <mxGraphModel dx="1900" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <!-- Actors -->
+        <mxCell id="ov-actor-1" value="Retail Investor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="100" y="450" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-actor-2" value="Data Sources (Market, IPO, News)" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="300" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-actor-3" value="Brokerage API" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="600" width="30" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Main Use Cases -->
+        <mxCell id="ov-uc-1" value="Manage Profile and Settings" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="50" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-2" value="Configure Automated Trading Bot" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="180" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-3" value="Perform IPO Analysis" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="310" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-4" value="Perform Stock Prediction" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="440" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-5" value="Analyze and Optimize Portfolio" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="570" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-6" value="Monitor Dashboard and Alerts" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="700" width="180" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-7" value="Manage Automated Trading (Start or Stop)" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="830" width="180" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- Secondary / Included Use Cases -->
+        <mxCell id="ov-uc-1a" value="Login Logout" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="20" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="ov-uc-1b" value="Set Risk Profile" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="95" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="ov-uc-1c" value="Link Broker Account" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="95" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="ov-uc-2a" value="Select Trading Strategy" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="180" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-2b" value="Set Strategy Parameters (StopLoss etc)" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="255" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-5a" value="Run MPT Optimization" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="535" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-5b" value="Sync Portfolio with Broker" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="600" y="610" width="140" height="70" as="geometry" />
+        </mxCell>
+         <mxCell id="ov-uc-int-1" value="Fetch Data" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="800" y="300" width="140" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="ov-uc-int-2" value="Execute Trade" style="ellipse;whiteSpace=wrap;html=1;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="800" y="600" width="140" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Connections -->
+        <!-- Investor to Main Use Cases -->
+        <mxCell id="ov-edge-1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-4" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-4"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-5" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-5"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-6" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-6"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-7" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-actor-1" target="ov-uc-7"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <!-- Include Relationships -->
+        <mxCell id="ov-edge-i1" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-1" target="ov-uc-1a"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i2" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-1" target="ov-uc-1b"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i3" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-1" target="ov-uc-1c"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i4" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-2" target="ov-uc-2a"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i5" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-2" target="ov-uc-2b"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i6" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-5" target="ov-uc-5a"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i7" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-5" target="ov-uc-5b"><mxGeometry relative="1" as="geometry"/></mxCell>
+
+        <mxCell id="ov-edge-i8" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-3" target="ov-uc-int-1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i9" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-4" target="ov-uc-int-1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i10" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-5" target="ov-uc-int-1"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-i11" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-6" target="ov-uc-int-1"><mxGeometry relative="1" as="geometry"/></mxCell>
+         <mxCell id="ov-edge-i12" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-7" target="ov-uc-int-2"><mxGeometry relative="1" as="geometry"/></mxCell> <!-- Starting/stopping can trigger final/initial trades -->
+         <mxCell id="ov-edge-i13" value="include" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-5b" target="ov-uc-int-2"><mxGeometry relative="1" as="geometry"/></mxCell> <!-- Rebalancing involves trades -->
+
+
+        <!-- Connections to External Systems -->
+        <mxCell id="ov-edge-e1" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-int-1" target="ov-actor-2"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-e2" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-int-2" target="ov-actor-3"><mxGeometry relative="1" as="geometry"/></mxCell>
+        <mxCell id="ov-edge-e3" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-1c" target="ov-actor-3"><mxGeometry relative="1" as="geometry"/></mxCell> <!-- Linking broker -->
+        <mxCell id="ov-edge-e4" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1" source="ov-uc-5b" target="ov-actor-3"><mxGeometry relative="1" as="geometry"/></mxCell> <!-- Syncing holdings -->
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

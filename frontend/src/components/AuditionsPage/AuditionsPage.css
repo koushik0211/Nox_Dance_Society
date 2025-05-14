@@ -1,0 +1,257 @@
+/* src/components/AuditionsPage/AuditionsPage.css */
+.auditions-page {
+    min-height: calc(100vh - 80px); /* Adjust 80px based on your navbar height */
+    background-color: #000; /* Match your site's dark background */
+    color: #fff;
+    padding: 60px 20px; /* Increased top/bottom padding */
+    position: relative;
+    overflow-x: hidden; 
+}
+
+.auditions-page__container {
+    max-width: 900px; /* Slightly narrower for better form readability */
+    margin: 0 auto;
+    position: relative; 
+    z-index: 1; /* Ensure content is above background texts */
+}
+
+/* Background Text Effects */
+.auditions-page__vertical-text-right {
+    position: fixed; /* Fixed so it stays on scroll */
+    top: 50%;
+    right: -70px; 
+    transform: translateY(-50%) rotate(90deg);
+    transform-origin: center right; 
+    font-size: clamp(3rem, 6vw, 5rem); /* Responsive font size */
+    font-weight: 800;
+    color: rgba(168, 85, 247, 0.07); 
+    letter-spacing: 10px;
+    text-transform: uppercase;
+    z-index: 0; 
+    pointer-events: none; 
+    white-space: nowrap;
+    transition: right 0.3s ease-out; /* Smooth transition for responsiveness */
+}
+
+.auditions-page__form-background-text {
+    position: absolute;
+    top: 45%; /* Adjusted position */
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-10deg); 
+    font-size: clamp(10rem, 25vw, 18rem); /* Responsive font size */
+    font-weight: 900;
+    color: rgba(168, 85, 247, 0.025); /* Even more subtle */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    z-index: 0; 
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+
+.auditions-page__title {
+    font-size: clamp(2rem, 5vw, 2.8rem); /* Responsive font size */
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 0.75rem;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.auditions-page__title--highlight {
+    color: #a855f7; /* Your NOX purple */
+}
+
+.auditions-page__title-divider {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, #a855f7, #c084fc); /* Gradient for divider */
+    margin: 0 auto 3rem auto;
+    border-radius: 3px;
+}
+
+.audition-form {
+    background-color: rgba(17, 17, 21, 0.9); /* Slightly transparent #111115 */
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(5px);
+    padding: 35px 45px; /* Increased padding */
+    border-radius: 16px; /* More rounded */
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    box-shadow: 0 12px 35px rgba(168, 85, 247, 0.1), 0 0 15px rgba(0,0,0,0.3); /* Softer glow, some depth */
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 25px 35px; /* row-gap column-gap, increased */
+    position: relative; 
+    z-index: 1; /* Above background text */
+}
+
+.audition-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Space between label and input */
+}
+
+.audition-form__label {
+    display: block;
+    font-size: 0.95rem; /* Slightly larger */
+    color: #c084fc; /* Lighter purple for labels */
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.audition-form__input,
+.audition-form__textarea,
+.audition-form__file-input {
+    width: 100%; 
+    background-color: rgba(31, 31, 35, 0.7); /* #1f1f23 with some transparency */
+    border: 1px solid #3a3a3f; /* Slightly lighter border */
+    color: #e0e0e0; /* Lighter text color */
+    padding: 14px 16px; /* Increased padding */
+    border-radius: 8px; /* More rounded */
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.audition-form__input::placeholder,
+.audition-form__textarea::placeholder {
+    color: #777; /* Lighter placeholder */
+}
+
+.audition-form__input:focus,
+.audition-form__textarea:focus,
+.audition-form__file-input:focus-within { /* For file input wrapper if needed */
+    outline: none;
+    border-color: #a855f7;
+    background-color: rgba(40, 40, 45, 0.8);
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.25);
+}
+
+.audition-form__textarea {
+    min-height: 120px; 
+    resize: vertical;
+}
+
+.audition-form__file-input {
+    padding: 0; /* Remove padding from input itself if styling button */
+    border: 1px dashed #555; /* Dashed border for dropzone feel */
+    display: flex; /* For custom styling (optional) */
+    align-items: center; /* For custom styling (optional) */
+    cursor: pointer;
+}
+.audition-form__file-input:hover {
+    border-color: #a855f7;
+}
+
+.audition-form__file-input::file-selector-button {
+    background-color: #a855f7;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    border-top-left-radius: 7px; /* Match parent border radius */
+    border-bottom-left-radius: 7px;
+    cursor: pointer;
+    margin-right: 15px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.audition-form__file-input::file-selector-button:hover {
+    background-color: #8a3fd9; 
+}
+    
+.audition-form__group--full-span {
+    grid-column: 1 / -1; 
+}
+
+.audition-form__actions {
+    display: flex;
+    justify-content: center; 
+    gap: 25px; /* Increased gap */
+    margin-top: 25px; 
+}
+.audition-form__actions--full-span {
+    grid-column: 1 / -1;
+}
+
+
+.audition-form__button {
+    padding: 14px 0; /* Vertical padding, horizontal managed by width/flex */
+    font-size: 1.05rem; 
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease-out;
+    flex-grow: 1; 
+    max-width: 280px; 
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.audition-form__button--submit {
+    background: linear-gradient(135deg, #a855f7, #9333ea); /* Purple gradient */
+    color: white;
+    border: 1px solid transparent; /* For hover effect consistency */
+}
+.audition-form__button--submit:hover {
+    background: linear-gradient(135deg, #9333ea, #a855f7);
+    box-shadow: 0 6px 12px rgba(168, 85, 247, 0.3);
+}
+
+.audition-form__button--rules {
+    background: transparent;
+    color: #c084fc;
+    border: 2px solid #a855f7;
+}
+.audition-form__button--rules:hover {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #d8b4fe;
+    border-color: #c084fc;
+    box-shadow: 0 6px 12px rgba(168, 85, 247, 0.2);
+}
+
+/* --- Responsive Styles --- */
+@media screen and (max-width: 768px) {
+    .auditions-page {
+        padding: 40px 15px;
+    }
+    .audition-form {
+        grid-template-columns: 1fr; /* Stack to single column */
+        gap: 20px 0; 
+        padding: 30px 25px;
+    }
+    .auditions-page__title {
+        font-size: clamp(1.8rem, 6vw, 2.2rem);
+    }
+    .auditions-page__vertical-text-right {
+        display: none; 
+    }
+    .auditions-page__form-background-text {
+        font-size: clamp(8rem, 20vw, 12rem);
+        top: 30%; /* Adjust for smaller screens */
+    }
+    
+    .audition-form__actions {
+        flex-direction: column; 
+        align-items: center; 
+    }
+    .audition-form__button {
+        width: 100%; 
+        max-width: 320px; 
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .auditions-page__form-background-text {
+       display: none; /* Hide on very small screens if it's too much */
+    }
+    .audition-form {
+        padding: 25px 20px;
+    }
+     .audition-form__button {
+        font-size: 0.95rem;
+        padding: 12px 0;
+    }
+}

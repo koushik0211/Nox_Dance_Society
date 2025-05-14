@@ -1,0 +1,166 @@
+/* src/components/Footer/Footer.css */
+.footer {
+    z-index: 2;
+    background-color: #000; /* Black background */
+    color: #ccc; /* Light gray text */
+    padding: 30px 0 30px 0; /* More top padding, less bottom */
+    margin-top: auto; /* Pushes footer to bottom */
+    border-top: 1px solid #333; /* Subtle top border */
+    overflow: hidden; /* Contain animations */
+}
+
+.footer-container {
+    /* Container styles are mostly global */
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+}
+
+/* --- Top Section --- */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between items */
+    margin-bottom: 30px;
+    margin-right: 40px;
+}
+
+.footer-logo img {
+    height: 120px; /* Adjust logo size */
+    width: auto;
+}
+
+.footer-message {
+    flex: 1; /* Allow message to take up space */
+    text-align: center;
+    font-style: italic;
+    font-size: 1.1rem;
+    max-width: 450px; /* Limit width */
+    color: #eee; /* Slightly brighter than default footer text */
+}
+
+.footer-message .highlight {
+    color: #a855f7; /* Purple accent color */
+    font-weight: 500;
+    font-style: normal; /* Override italic for highlighted part */
+}
+
+.footer-social {
+    text-align: right;
+}
+
+.footer-social h4 {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px; /* Space between icons */
+    justify-content: flex-end; /* Align icons to the right */
+}
+
+.social-icons a {
+    color: #ccc; /* Default icon color */
+    font-size: 1.6rem; /* Icon size */
+    transition: color 0.3s ease; /* Smooth color transition on hover */
+    display: inline-block; /* Needed for Framer Motion transform */
+}
+
+/* Hover handled by Framer Motion 'whileHover', but good fallback */
+.social-icons a:hover {
+    color: #a855f7;
+}
+
+/* --- Separator --- */
+.footer-separator {
+    border: none;
+    height: 1px;
+    background-color: #333; /* Separator line color */
+    margin: 10px 0 25px 0; /* Spacing around separator */
+}
+
+/* --- Bottom Section --- */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 10px;
+    font-size: 0.85rem;
+    color: #aaa; /* Dimmer text for bottom */
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.copyright {
+    text-align: left;
+}
+
+.designed-by {
+    text-align: right;
+}
+
+.designed-by .highlight {
+    color: #a855f7; /* Purple accent */
+    font-weight: 700;
+}
+
+/* --- Responsive Styles --- */
+@media screen and (max-width: 960px) {
+    .footer-top {
+        justify-content: center; /* Center items when potentially wrapping */
+        text-align: center;
+    }
+    .footer-message {
+        order: 1; /* Put message first on medium screens */
+        flex-basis: 100%; /* Make message take full width */
+        max-width: 90%;
+        margin-bottom: 20px; /* Add space below message */
+    }
+    .footer-logo {
+         order: 2;
+         margin: 0 auto 20px auto; /* Center logo */
+    }
+    .footer-social {
+        order: 3;
+        text-align: center;
+        width: 100%;
+    }
+    .social-icons {
+        justify-content: center; /* Center icons */
+    }
+}
+
+@media screen and (max-width: 576px) {
+     .footer {
+        padding: 40px 0 20px 0;
+     }
+    .footer-top {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center;
+        gap: 25px;
+    }
+    .footer-logo { order: 1; margin-bottom: 0; }
+    .footer-message { order: 2; margin-bottom: 0;}
+    .footer-social { order: 3; margin-top: 10px; }
+
+
+    .footer-bottom {
+        flex-direction: column; /* Stack copyright and designed by */
+        justify-content: center;
+        text-align: center;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    .copyright, .designed-by {
+        text-align: center;
+        width: 100%;
+    }
+
+    .social-icons a { font-size: 1.8rem; } /* Slightly larger icons on mobile */
+}

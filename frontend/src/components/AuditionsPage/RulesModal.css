@@ -1,0 +1,189 @@
+/* src/components/AuditionsPage/RulesModal.css */
+.rules-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000; /* High z-index */
+}
+
+.rules-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.75); /* Semi-transparent black */
+    backdrop-filter: blur(5px); /* Optional blur */
+}
+
+.rules-modal-scroll-container {
+    position: fixed;
+    inset: 0;
+    overflow-y: auto;
+}
+
+.rules-modal-center-content {
+    display: flex;
+    min-height: 100%;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem; /* Or your preferred padding */
+    text-align: center;
+}
+
+.rules-modal-panel {
+    width: 100%;
+    max-width: 550px; /* Or your preferred max width */
+    transform: translate(0, 0); /* Base for Framer Motion */
+    overflow: hidden;
+    border-radius: 1rem; /* Rounded corners */
+    background-color: #111115; /* Dark card background */
+    padding: 2rem 2.5rem;
+    text-align: left;
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    color: #ccc;
+}
+
+.rules-modal__title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #a855f7; /* Purple */
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.rules-modal__title-divider {
+    width: 80px;
+    height: 2px;
+    background-color: #a855f7;
+    margin: 0 auto 1.5rem auto;
+    border-radius: 1px;
+}
+
+.rules-modal__intro-text {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    color: #fff;
+}
+
+.rules-modal__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+}
+
+.rules-modal__list-item {
+    display: flex;
+    align-items: flex-start; /* Align icon with start of text */
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.rules-modal__list-item-icon {
+    color: #a855f7;
+    margin-right: 0.75rem;
+    margin-top: 4px; /* Adjust for vertical alignment */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+.rules-modal__details-box {
+    background-color: rgba(31, 31, 35, 0.5); /* Slightly transparent dark bg */
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.rules-modal__details-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #a855f7;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.rules-modal__details-content p {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.rules-modal__details-icon {
+    margin-right: 0.75rem;
+    color: #a855f7;
+}
+
+.rules-modal__actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.rules-modal__close-button {
+    background-color: #a855f7;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.rules-modal__close-button:hover {
+    background-color: #8a3fd9; /* Darker purple */
+}
+
+/* Responsive for Modal */
+@media screen and (max-width: 600px) {
+    .rules-modal-panel {
+        padding: 1.5rem;
+        margin: 1rem; /* Add some margin on small screens */
+    }
+    .rules-modal__title {
+        font-size: 1.6rem;
+    }
+}
+
+/* src/components/AuditionsPage/RulesModal.css */
+/* ... other modal styles ... */
+
+.rules-modal__section-subtitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #e0e0e0; /* Slightly brighter than regular text */
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    text-align: left;
+  }
+  
+  .rules-modal__list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  
+  .rules-modal__list-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #ccc; /* Standard text color for list items */
+  }
+  
+  .rules-modal__list-item-icon {
+    color: #a855f7; /* Your theme purple */
+    margin-right: 0.75rem;
+    margin-top: 4px; /* Adjust for vertical alignment with text */
+    flex-shrink: 0;
+  }
+  
+  .rules-modal__note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #888; /* Muted text color */
+      margin-top: 1rem;
+  }

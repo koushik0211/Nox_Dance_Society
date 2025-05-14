@@ -1,0 +1,223 @@
+/* src/components/AboutSection/AboutSection.css */
+
+/* Base Section Styles */
+.about-section {
+    padding: 80px 0;
+    background-color: #050505; /* Slightly off-black */
+    overflow: hidden; /* Contain animations */
+}
+
+/* Container Styles */
+.about-container {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+
+    margin: 0 50px; /* Center the container */
+    padding: 0 30px; /* Add horizontal padding */
+}
+
+/* Content Styles (Right Side on Desktop) */
+.about-content {
+    flex: 1; /* Take up available space */
+    min-width: 300px; /* Minimum width */
+    max-width: 550px; /* Maximum width */
+    color: #fff;
+}
+
+.about-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+
+.about-heading .highlight {
+    color: #a855f7; /* Purple highlight */
+}
+
+.about-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #cccccc;
+}
+
+/* Swiper Container Styles (Left Side on Desktop) */
+.about-swiper-container {
+    flex: 1; /* Take up available space */
+    min-width: 300px; /* Minimum width */
+    max-width: 450px; /* Maximum width */
+    position: relative; /* Crucial for positioning the arrows */
+    border-radius: 15px;
+    overflow: hidden; /* Clip image corners and contain arrows */
+    box-shadow: 0 10px 25px rgba(168, 85, 247, 0.2); /* Optional glow */
+}
+
+/* Swiper Instance Styles */
+.myAboutSwiper { /* Unique class for this swiper instance */
+    width: 100%;
+    height: 400px; /* Define a height for the swiper */
+    /* Alternatively, use aspect-ratio: aspect-ratio: 4 / 3; */
+    border-radius: 15px; /* Match container */
+}
+
+/* Individual Slide Styles */
+.myAboutSwiper .swiper-slide {
+    height: 100%; /* Ensure slide fills the swiper height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #111; /* Fallback background */
+}
+
+/* Image within the slide */
+.about-slide-image { /* Class used in the img tag */
+    display: block;
+    width: 100%;
+    height: 100%; /* Make image fill the slide */
+    object-fit: cover; /* Cover the slide area */
+}
+
+/* === Swiper Custom Arrow Styles (Circular Black Background) === */
+.about-swiper-button-prev, /* Specific class */
+.about-swiper-button-next { /* Specific class */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10; /* Above slides */
+  width: 44px;
+  height: 44px;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black */
+  border-radius: 50%; /* Circular */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff; /* White arrow icon */
+  transition: background-color 0.3s ease;
+}
+
+.about-swiper-button-prev:hover,
+.about-swiper-button-next:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darken on hover */
+}
+
+.about-swiper-button-prev {
+  left: 15px; /* Position from left */
+}
+
+.about-swiper-button-next {
+  right: 15px; /* Position from right */
+}
+
+/* Arrow icons using Swiper's built-in font */
+.about-swiper-button-prev::after,
+.about-swiper-button-next::after {
+  font-family: 'swiper-icons';
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.about-swiper-button-prev::after {
+  content: 'prev';
+}
+
+.about-swiper-button-next::after {
+  content: 'next';
+}
+/* === End Swiper Custom Arrow Styles === */
+
+
+/* === Swiper Pagination Styles (White/Purple Dots) === */
+.about-swiper-container .swiper-pagination {
+    bottom: 15px !important; /* Position dots lower */
+    /* Ensure pagination is clickable if arrows overlap slightly */
+    z-index: 11; /* Above arrows if needed, test this */
+}
+
+.about-swiper-container .swiper-pagination-bullet {
+    background-color: #fff !important; /* White inactive bullet */
+    opacity: 0.6 !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 5px !important;
+    transition: background-color 0.3s ease, opacity 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.about-swiper-container .swiper-pagination-bullet-active {
+    background-color: #a855f7 !important; /* Purple active bullet */
+    opacity: 1 !important;
+    width: 12px !important; /* Slightly larger active bullet */
+    height: 12px !important;
+}
+/* === End Swiper Pagination Styles === */
+
+
+/* === Responsive Styles === */
+@media screen and (max-width: 960px) {
+    .about-container {
+        flex-direction: column; /* Stack vertically */
+        text-align: center; /* Center text */
+        gap: 50px; /* Maintain gap */
+        padding: 0 20px; /* Adjust padding */
+    }
+    /* Content order changes */
+    .about-content {
+        max-width: 90%;
+        order: 2; /* Text below swiper */
+    }
+    .about-swiper-container {
+        max-width: 90%;
+        width: 100%; /* Take full available width */
+        order: 1; /* Swiper above text */
+    }
+     .about-heading {
+        font-size: 3rem; /* Adjust heading size */
+    }
+    .myAboutSwiper { /* Adjust swiper height */
+       height: 350px;
+       /* aspect-ratio: 16 / 10; */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about-section {
+        padding: 60px 0; /* Less padding */
+    }
+    .about-container {
+        padding: 0 15px; /* Less horizontal padding */
+        gap: 40px; /* Reduce gap */
+    }
+     .about-heading {
+        font-size: 2.2rem; /* Smaller heading */
+    }
+     .about-description {
+        font-size: 0.9rem; /* Smaller description */
+        line-height: 1.6;
+     }
+     .myAboutSwiper { /* Adjust swiper height */
+        height: 300px;
+        /* aspect-ratio: 1 / 1; */
+     }
+
+     /* Adjust arrows for smaller screens */
+     .about-swiper-button-prev,
+     .about-swiper-button-next {
+        width: 36px;
+        height: 36px;
+     }
+     .about-swiper-button-prev::after,
+     .about-swiper-button-next::after {
+        font-size: 14px; /* Smaller arrow icon */
+     }
+     .about-swiper-button-prev { left: 10px; }
+     .about-swiper-button-next { right: 10px; }
+
+    /* Adjust pagination position */
+    .about-swiper-container .swiper-pagination {
+        bottom: 10px !important;
+    }
+}

@@ -1,0 +1,195 @@
+/* src/components/FamSection/FamSection.css */
+.fam-section {
+    padding: 80px 0; /* Keep vertical padding */
+    background-color: #000;
+    overflow: hidden;
+}
+
+.fam-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: space-between;
+    gap: 60px; /* Increased gap slightly */
+    flex-wrap: wrap;
+    /* --- Add Horizontal Padding --- */
+   
+    margin: 0 50px; /* Center the container */
+    padding: 0 30px; /* Add padding on left and right */
+}
+
+.fam-content {
+    flex: 1;
+    min-width: 300px; /* Prevent text becoming too narrow */
+    max-width: 500px; /* Limit text width */
+    color: #fff;
+}
+
+.fam-heading {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+}
+.fam-heading .highlight {
+    color: #a855f7;
+}
+
+.fam-description {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: #cccccc;
+}
+
+.fam-button {
+    padding: 12px 30px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease; /* Added transform transition */
+    letter-spacing: 0.5px;
+}
+
+/* --- Styles for the Swiper --- */
+.fam-swiper-wrapper {
+    flex: 1;
+    min-width: 300px; /* Prevent swiper becoming too narrow */
+    max-width: 450px; /* Adjust max width as needed */
+    position: relative; /* Needed for positioning arrows */
+    border-radius: 15px; /* Rounded corners for the container */
+    overflow: hidden; /* Ensure arrows stay within rounded corners */
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.25); /* Slightly stronger purple glow */
+}
+
+.fam-swiper {
+    /* The Swiper component itself */
+    width: 100%;
+    height: 100%; /* Ensure it fills the wrapper */
+    border-radius: 15px; /* Match wrapper */
+}
+
+.fam-slide-image {
+    display: block; /* Remove extra space below image */
+    width: 100%;
+    height: 400px; /* Give slides a fixed height or use aspect-ratio */
+    /* aspect-ratio: 4 / 3; */ /* Alternative: Set aspect ratio */
+    object-fit: cover; /* Cover the slide area */
+}
+
+/* --- Custom Arrow Styles --- */
+.fam-swiper-button-prev,
+.fam-swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px; /* Size of the arrow button */
+    height: 44px;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black background */
+    border-radius: 50%; /* Make them circular */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* White arrow color */
+    transition: background-color 0.3s ease;
+}
+
+.fam-swiper-button-prev:hover,
+.fam-swiper-button-next:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken on hover */
+}
+
+.fam-swiper-button-prev {
+    left: 15px; /* Position from left */
+}
+
+.fam-swiper-button-next {
+    right: 15px; /* Position from right */
+}
+
+/* Arrow icons using Swiper's built-in font */
+.fam-swiper-button-prev::after,
+.fam-swiper-button-next::after {
+    font-family: 'swiper-icons';
+    font-size: 18px; /* Size of the arrow icon */
+    font-weight: bold;
+    line-height: 1;
+}
+
+.fam-swiper-button-prev::after {
+    content: 'prev';
+}
+
+.fam-swiper-button-next::after {
+    content: 'next';
+}
+
+/* --- Responsive Styles (Adjusted) --- */
+@media screen and (max-width: 960px) {
+    .fam-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 50px; /* Consistent gap */
+        padding: 0 20px; /* Adjust padding for tablets */
+    }
+    .fam-content {
+        max-width: 90%;
+        order: 2; /* Text below image */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center button */
+    }
+    .fam-swiper-wrapper { /* Renamed from fam-image-container */
+        max-width: 90%; /* Allow more width */
+        width: 100%; /* Take full available width */
+        order: 1; /* Image above text */
+    }
+    .fam-heading {
+        font-size: 3rem;
+    }
+     .fam-slide-image {
+        height: 350px; /* Adjust height for smaller screens */
+        /* aspect-ratio: 16 / 10; */ /* Or adjust aspect ratio */
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .fam-section {
+        padding: 60px 0;
+    }
+     .fam-container {
+        padding: 0 15px; /* Less padding on small phones */
+        gap: 40px;
+    }
+    .fam-heading {
+        font-size: 2.2rem; /* Further reduce heading */
+    }
+     .fam-description {
+        font-size: 0.9rem; /* Smaller text */
+        line-height: 1.6;
+     }
+     .fam-button {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+     }
+     .fam-slide-image {
+        height: 300px; /* Further adjust height */
+        /* aspect-ratio: 1 / 1; */ /* Square maybe? */
+    }
+    .fam-swiper-button-prev,
+    .fam-swiper-button-next {
+        width: 36px; /* Smaller buttons */
+        height: 36px;
+    }
+     .fam-swiper-button-prev::after,
+    .fam-swiper-button-next::after {
+        font-size: 14px; /* Smaller arrows */
+    }
+     .fam-swiper-button-prev { left: 10px; }
+     .fam-swiper-button-next { right: 10px; }
+}

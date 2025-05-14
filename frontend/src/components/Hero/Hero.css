@@ -1,0 +1,302 @@
+/* src/components/Hero/Hero.css */
+.hero-section {
+    
+    background: linear-gradient(to bottom, #140121, #000000);
+    padding: 100px 0 120px 0; /* Increase bottom padding slightly */
+    position: relative;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.dancer-silhouette {
+    position: absolute;
+    top: 7%; /* Adjust position slightly */
+    left: 15%; /* Adjust position slightly */
+    transform: translate(-50%, -50%);
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+    max-width: 500px;
+    filter: blur(1px);
+}
+
+.dancer-silhouette img {
+    width: 100%;
+    height: 500px;
+}
+
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 150px; /* Keep some gap */
+    position: relative;
+    z-index: 1;
+}
+
+/* Give content more space */
+.hero-content {
+    margin-left: 6rem;
+    flex: 1.8; /* Give more weight to content */
+    max-width: 600px; /* Allow slightly more width */
+}
+
+/* Style the new heading block */
+.hero-heading-block {
+    margin-bottom: 1.4rem; /* Space before the divider */
+    line-height: 1.1; /* Bring lines slightly closer if needed */
+    
+}
+
+.hero-heading-main {
+    text-align: left;
+    display: block; /* Ensure it takes its own line */
+    font-size: 4rem; /* Adjust if needed */
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.3rem; /* Small space between heading parts */
+}
+
+.hero-heading-sub {
+    text-align: left;
+    width: 800px;
+
+    display: block; /* Ensure it takes its own line */
+    font-size: 3.8rem; /* Adjust font size - might need tweaking */
+    font-weight: 700;
+    color: #a855f7; /* Purple color */
+}
+
+/* Divider Style */
+.heading-divider {
+    width: 700px; /* Adjust width */
+    height: 3px;
+    background: #fff; /* White line */
+    margin-bottom: 2rem; /* Space after the divider */
+    transform-origin: left; /* For scaleX animation */
+}
+
+.hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 2.5rem; /* Adjust spacing */
+    color: #cccccc;
+    max-width: 600px; /* Keep description width controlled */
+    line-height: 1.7;
+}
+
+.hero-button {
+    padding: 18px 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    /* Hover/Tap handled by Framer Motion */
+}
+
+
+/* Keep logo container from shrinking too much */
+.hero-logo-container {
+    flex: 1; /* Reduce weight relative to content */
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: auto; /* Adjust logo area size */
+}
+
+.hero-logo {
+    width: 100%;
+    height: auto;
+    /* margin-left: 12rem; */
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.hero-logo-text {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-align: center;
+    color: #ffffff;
+    /* margin-left: 12rem; */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1100px) {
+     /* Adjust font size slightly earlier if needed */
+    .hero-heading-main { font-size: 3.5rem; }
+    .hero-heading-sub { font-size: 3.3rem; }
+}
+
+
+
+
+/* new media queries */
+
+/* Updated Media Queries for Hero Section */
+
+/* Tablet breakpoint adjustments */
+@media screen and (max-width: 960px) {
+    .hero-section {
+        padding: 80px 20px; /* Add horizontal padding */
+        min-height: auto;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+        gap: 50px;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .hero-content {
+        margin: 0 auto;
+        padding: 0 15px;
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        flex: 1;
+    }
+
+    .hero-heading-block {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 1.2rem;
+    }
+
+    .hero-heading-main { 
+        font-size: 2.8rem; 
+        margin-bottom: 0.1rem; 
+        text-align: center;
+        width: 100%;
+    }
+    
+    .hero-heading-sub { 
+        font-size: 2.6rem; 
+        text-align: center;
+        width: 100%;
+    }
+
+    .heading-divider {
+        width: 80%; /* Percentage-based width */
+        max-width: 400px;
+        height: 2px;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .hero-description {
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto 2rem auto;
+        text-align: center;
+    }
+
+    .hero-logo-container {
+        max-width: 250px;
+        order: 1;
+        margin: 0 auto;
+    }
+    
+    .hero-logo-text { 
+        font-size: 1.2rem; 
+    }
+
+    .dancer-silhouette {
+        left: 50%;
+        top: 35%;
+        max-width: 300px;
+        opacity: 0.1;
+        transform: translateX(-50%);
+    }
+}
+
+/* Mobile breakpoint adjustments */
+@media screen and (max-width: 480px) {
+    .hero-section {
+        padding: 60px 15px; /* Reduce padding further */
+    }
+    
+    .hero-container {
+        gap: 30px;
+        max-width: 100%;
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .hero-heading-main {
+        font-size: 2rem;
+    }
+
+    .hero-heading-sub {
+        font-size: 1.8rem;
+    }
+
+    .heading-divider {
+        width: 70%;
+        max-width: 280px;
+        margin: 10px auto 15px auto;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+
+    .hero-button {
+        padding: 12px 24px;
+        font-size: 0.9rem;
+        width: auto; /* Prevent button from stretching */
+    }
+
+    .hero-logo-container {
+        max-width: 180px;
+    }
+    
+    .hero-logo-text {
+        font-size: 1rem;
+    }
+
+    /* Hide dancer silhouette on very small screens */
+    .dancer-silhouette {
+        display: none;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+    .hero-heading-main {
+        font-size: 1.6rem;
+    }
+
+    .hero-heading-sub {
+        font-size: 1.5rem;
+    }
+
+    .hero-button {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .hero-description {
+        font-size: 0.85rem;
+    }
+
+    .hero-logo-container {
+        max-width: 150px;
+    }
+}

@@ -1,0 +1,244 @@
+/* src/components/Navbar/Navbar.css */
+.navbar {
+    /* Start transparent */
+    background: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    width: 100%;
+    /* Smooth transition for background change */
+    /* transition: background-color 0.4s ease, box-shadow 0.4s ease; */
+    /* Remove initial shadow */
+    box-shadow: none;
+}
+
+/* Styles for when scrolled */
+.navbar-scrolled {
+    /* Use rgba for semi-transparent background */
+    background-color: rgba(5, 5, 5, 0.85); /* Dark background with some transparency */
+    /* Add backdrop blur for a frosted glass effect */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); 
+    box-shadow: 0 2px 10px rgba(168, 85, 247, 0.15); /* Subtle purple glow shadow when scrolled */
+}
+
+.navbar-container {
+    /* margin-left: 50px; */
+    /* margin-right: 50px; */
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.navbar-logo {
+    justify-self: start;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.navbar-logo-img {
+    height: 70px; /* Adjust size as needed */
+    width: auto;
+    transition: transform 0.3s ease;
+}
+.navbar-logo-img:hover {
+    transform: scale(1.05); /* Slight scale on logo hover */
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.nav-item {
+    padding: 10px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: 0.5rem 1rem; /* Consistent padding */
+    margin: 0 0.5rem; /* Add horizontal space between links */
+    height: 100%;
+    font-weight: 500;
+    letter-spacing: 1px;
+    position: relative; /* Needed for the ::after pseudo-element */
+    overflow: hidden; /* Hide underline overflow initially */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Underline effect */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 20px; /* Position underline below text */
+    left: 0.5rem; /* Start slightly indented */
+    width: calc(100% - 1rem); /* Match text width */
+    height: 2px;
+    background-color: #a855f7; /* Purple underline */
+    transform: scaleX(0); /* Start scaled to zero */
+    transform-origin: left; /* Grow from the left */
+    transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1); /* Smooth easing */
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after { /* Add focus state for accessibility */
+    transform: scaleX(1); /* Scale to full width on hover/focus */
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    color: #eee; /* Slightly change color on hover/focus */
+    outline: none; /* Remove default focus outline if using custom */
+}
+
+/* --- Button Style for Auditions Link --- */
+.nav-link-button {
+    padding: 8px 20px !important; /* Override default padding */
+    border: 2px solid #a855f7;
+    border-radius: 25px; /* Rounded button */
+    margin-left: 1rem; /* More space before button */
+    height: auto; /* Override height */
+    line-height: 1.4; /* Adjust line height */
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-link-button:hover,
+.nav-link-button:focus {
+    background-color: #a855f7;
+    color: #fff;
+    border-color: #a855f7;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* Remove underline effect specifically for the button */
+.nav-link-button::after {
+    display: none;
+}
+
+/* --- Hamburger Menu --- */
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 1001; /* Ensure it's above mobile menu background */
+}
+
+.line {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+    border-radius: 2px; /* Slightly rounded lines */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncier transition */
+}
+
+/* Hamburger animation */
+.line1.open { transform: rotate(-45deg) translate(-5px, 6px); }
+.line2.open { opacity: 0; transform: translateX(-10px); } /* Fade and slide out */
+.line3.open { transform: rotate(45deg) translate(-5px, -6px); }
+
+
+/* --- Responsive Styles --- */
+@media screen and (max-width: 960px) {
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        /* Smoother slide-in effect */
+        height: 100vh; /* Full height */
+        position: fixed; /* Use fixed positioning */
+        top: 0;
+        left: -100%;
+        opacity: 0; /* Start transparent */
+        visibility: hidden; /* Hide initially */
+        transition: all 0.5s ease-in-out; /* Smooth transition for slide and opacity */
+        background-color: rgba(10, 10, 10, 0.98); /* Slightly transparent dark background */
+        backdrop-filter: blur(15px); /* Stronger blur for mobile menu */
+         -webkit-backdrop-filter: blur(15px);
+        padding-top: 100px; /* Space for navbar */
+        z-index: 1000; /* Ensure it's below the icon but above content */
+    }
+
+    .nav-menu.active {
+        left: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-item {
+        width: 100%;
+        height: auto;
+        padding: 0; /* Reset padding */
+        margin-bottom: 1rem; /* Space between mobile links */
+    }
+
+    .nav-link {
+        text-align: center;
+        padding: 1.5rem;
+        width: 80%; /* Control link width */
+        margin: 0 auto; /* Center links */
+        display: block; /* Use block for full width clickable area */
+        font-size: 1.4rem;
+        border-radius: 10px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+     .nav-link:hover,
+     .nav-link:focus {
+        color: #a855f7;
+        background-color: rgba(255, 255, 255, 0.05); /* Subtle background on hover */
+     }
+
+    /* Remove underline effect on mobile */
+    .nav-link::after {
+        display: none;
+    }
+
+    /* Adjust button style for mobile */
+    .nav-link-button {
+        border: 2px solid #a855f7;
+        background-color: transparent;
+        color: #a855f7; /* Start with purple text */
+        font-weight: 600;
+        padding: 1rem 1.5rem !important; /* Adjust padding */
+        width: fit-content; /* Make button width fit content */
+        margin: 1rem auto 0 auto; /* Add top margin */
+    }
+
+    .nav-link-button:hover,
+    .nav-link-button:focus {
+        background-color: #a855f7;
+        color: #fff;
+        transform: none; /* Disable lift on mobile */
+    }
+
+
+    .menu-icon {
+        display: block;
+        position: absolute; /* Keep consistent positioning */
+        top: 22px; /* Adjust vertical position */
+        right: 25px; /* Adjust horizontal position */
+        transform: none; /* Reset transform */
+        font-size: 1.8rem;
+    }
+}
