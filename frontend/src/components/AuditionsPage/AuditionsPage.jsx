@@ -94,44 +94,55 @@ const AuditionsPage = () => {
 
 // ...
 
-const handleSubmit = async (e) => { // Make it async
+const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Create FormData object to send data including the file
     const submissionData = new FormData();
     Object.keys(formData).forEach(key => {
-        // Append null values as empty strings or handle them as per backend needs
-        // For files, formData[key] will be the File object or null
         if (formData[key] !== null) {
             submissionData.append(key, formData[key]);
         }
     });
 
-    // For debugging FormData:
-    // for (let [key, value] of submissionData.entries()) {
-    //   console.log(`${key}: ${value}`);
-    // }
+    // Get the backend URL from environment variable, with a fallback for local development
+    // REACT_APP_BACKEND_URL is the standard naming convention for env vars in Create React App
+    const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+    
+    console.log("Attempting to submit to:", `${BACKEND_URL}/api/auditions/register`); // For debugging
 
     try {
-        // Replace with your actual backend URL
-        const response = await axios.post('http://localhost:5001/api/auditions/register', submissionData, {
+        const response = await axios.post(`${BACKEND_URL}/api/auditions/register`, submissionData, {
             headers: {
-                'Content-Type': 'multipart/form-data' // Important for file uploads
+                'Content-Type': 'multipart/form-data' 
             }
         });
 
         console.log('Submission successful:', response.data);
         alert(response.data.message || 'Registration Submitted Successfully!');
-        setFormData(initialFormData); // Reset form
+        setFormData(initialFormData); 
         const fileInput = document.getElementById('danceVideo');
         if (fileInput) fileInput.value = "";
 
     } catch (error) {
-        console.error('Submission error:', error.response ? error.response.data : error.message);
-        alert(`Submission failed: ${error.response ? error.response.data.message : error.message}`);
+        let errorMessage = 'Submission failed. Please try again.';
+        if (error.response) {
+            // The request was made and the server responded with a status code
+            // that falls out of the range of 2xx
+            console.error('Submission error - Server responded:', error.response.data);
+            errorMessage = `Submission failed: ${error.response.data.message || 'Server responded with an error.'}`;
+        } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.error('Submission error - No response received:', error.request);
+            errorMessage = 'Submission failed: No response from server. Check network connection or if the server is running.';
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.error('Submission error - Request setup error:', error.message);
+            errorMessage = `Submission failed: ${error.message}`;
+        }
+        alert(errorMessage);
     }
 };
-
 // ... (rest of the component) ...
     const pageVariants = {
         initial: { opacity: 0, y: 20 },
