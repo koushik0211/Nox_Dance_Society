@@ -29,7 +29,8 @@ const app = express();
 // a. CORS (Cross-Origin Resource Sharing) Middleware
 const allowedOrigins = [
     'https://nox-dance-society-front.vercel.app',
-    'https://nox-dance-society-web.onrender.com',
+                                              // 'https://nox-dance-society-web.onrender.com',
+
     'http://localhost:3000', // For your main frontend dev server
     'http://localhost:3001',
       // For your deployed frontend
