@@ -184,7 +184,7 @@ const AuditionsPage = () => {
                         <motion.button type="submit" className="audition-form__button audition-form__button--submit" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} disabled={isUploading}>
                             {isUploading ? 'Submitting...' : 'SUBMIT'}
                         </motion.button>
-                        <motion.button type="button" onClick={() => setIsModalOpen(true)} className="audition-form__button audition-form__button--rules" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} disabled={isUploading || rulesLoading}>
+                        <motion.button type="button" onClick={() => setIsModalOpen(true)} className="audition-form__button audition-form__button--rules" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }} disabled={rulesLoading || rulesError}>
                             {rulesLoading ? 'Loading Rules...' : 'Rules and Regulations'}
                         </motion.button>
                     </motion.div>

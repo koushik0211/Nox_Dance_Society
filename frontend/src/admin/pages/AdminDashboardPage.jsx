@@ -35,7 +35,7 @@ const AdminDashboardPage = () => {
                 transition={{ duration: 0.5, ease: "easeOut" }}
             >
                 <h1 className="admin-dashboard__title">
-                    Welcome, <span>Admin</span>!
+                Welcome, <span>{adminUser?.email.split('@')[0] || 'Admin'}</span>!
                 </h1>
                 <p className="admin-dashboard__subtitle">
                     Manage noxdancesociety.com effectively from this central hub.

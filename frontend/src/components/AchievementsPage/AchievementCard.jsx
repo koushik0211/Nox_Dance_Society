@@ -1,7 +1,7 @@
 // Nox2/frontend/src/components/AchievementsPage/AchievementCard.js
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaTrophy, FaMapMarkerAlt, FaUsers, FaPhotoVideo, FaInfoCircle, FaAward, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaTrophy, FaMapMarkerAlt, FaUsers, FaPhotoVideo, FaInfoCircle, FaAward } from 'react-icons/fa';
 import CompetitionTeamModal from './CompetitionTeamModal'; 
 
 const AchievementCard = ({ achievement, currentTeamMembers }) => {
