@@ -28,23 +28,25 @@ const app = express();
 // 5. Apply Middleware
 // a. CORS (Cross-Origin Resource Sharing) Middleware
 const allowedOrigins = [
+    'https://nox-dance-society-web.onrender.com',
     'http://localhost:3000', // For your main frontend dev server
     'http://localhost:3001',
-     'https://nox-dance-society-web.onrender.com', // For your deployed frontend
+      // For your deployed frontend
       // For your admin frontend dev server if on a different port
     // Add your deployed frontend and admin URLs here later
     // 'https://nox-frontend.onrender.com',
     // 'https://nox-admin.onrender.com'
 ];
 app.use(cors({
-    origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true
+  origin: function (origin, callback) {
+    // allow requests with no origin (like mobile apps or curl/Postman)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS not allowed for this origin: ' + origin));
+    }
+  },
+  credentials: true
 }));
 
 // b. Body Parser Middleware
@@ -77,12 +79,12 @@ app.use((err, req, res, next) => {
 });
 
 // 10. Define Port and Start Server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-    console.log(
-        `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
-    );
-});  
+// const PORT = process.env.PORT || 5001;
+// app.listen(PORT, () => {
+//     console.log(
+//         `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
+//     );
+// });  
 
-// module.exports = app;
+module.exports = app;
 
