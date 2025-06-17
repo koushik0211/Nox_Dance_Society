@@ -3,7 +3,7 @@
 /* Base Section Styles */
 .about-section {
     padding: 80px 0;
-    background-color: #050505; /* Slightly off-black */
+    background-color: #000000; /* Slightly off-black */
     overflow: hidden; /* Contain animations */
 }
 
@@ -12,7 +12,7 @@
     display: flex;
     align-items: center; /* Vertically center items */
     justify-content: space-between;
-    gap: 50px;
+    gap: 60px;
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
 
     margin: 0 50px; /* Center the container */
@@ -157,6 +157,19 @@
 
 
 /* === Responsive Styles === */
+@media screen and (min-width: 1900px) {
+    .about-container {
+    display: flex;
+    align-items: center; /* Vertically center items */
+    justify-content: space-between;
+    gap: 60px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+
+    margin: 0 50px; /* Center the container */
+    padding: 0 60px; /* Add horizontal padding */
+}
+
+}
 @media screen and (max-width: 960px) {
     .about-container {
         flex-direction: column; /* Stack vertically */
@@ -190,6 +203,7 @@
     .about-container {
         padding: 0 15px; /* Less horizontal padding */
         gap: 40px; /* Reduce gap */
+        margin: auto;
     }
      .about-heading {
         font-size: 2.2rem; /* Smaller heading */

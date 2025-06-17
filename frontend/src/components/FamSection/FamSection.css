@@ -130,6 +130,20 @@
 }
 
 /* --- Responsive Styles (Adjusted) --- */
+
+@media screen and (min-width: 1900px) {
+    .fam-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+    justify-content: space-between;
+     gap:60px;/* Increased gap slightly */
+    flex-wrap: wrap;
+    /* --- Add Horizontal Padding --- */
+   
+    margin: 0 50px; /* Center the container */
+    padding: 0 60px; /* Add padding on left and right */
+}
+}
 @media screen and (max-width: 960px) {
     .fam-container {
         flex-direction: column;
@@ -165,7 +179,9 @@
      .fam-container {
         padding: 0 15px; /* Less padding on small phones */
         gap: 40px;
+        margin: auto;
     }
+    
     .fam-heading {
         font-size: 2.2rem; /* Further reduce heading */
     }

@@ -1,0 +1,87 @@
+/* frontend/src/admin/components/AdminLayout.css */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #08060f;
+    color: #e0e0e0;
+    font-family: 'Poppins', sans-serif;
+    position: relative; /* For mobile overlay behavior */
+    overflow-x: hidden; /* Prevent horizontal scroll from sidebar transition */
+}
+
+.admin-main-content {
+    flex-grow: 1;
+    /* On desktop, the sidebar has its own width */
+    width: calc(100% - 260px); 
+    padding: 0; /* Let the mobile header and content wrapper handle padding */
+    overflow-y: auto;
+    transition: margin-left 0.3s ease; /* For potential future sidebar collapse on desktop */
+}
+
+.admin-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2.5rem;
+}
+
+/* === Mobile Header with Hamburger === */
+.admin-mobile-header {
+    display: none; /* Hidden on desktop */
+    background-color: #110d1c;
+    padding: 0 1rem;
+    height: 60px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.admin-mobile-header__logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #a855f7;
+    text-transform: uppercase;
+}
+
+.admin-mobile-header__menu-button {
+    background: none;
+    border: none;
+    color: #c084fc;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+
+/* === Responsive Adjustments for Mobile === */
+@media screen and (max-width: 992px) {
+   
+
+    .admin-main-content {
+        width: 100%; /* Main content takes full width on mobile */
+    }
+
+    .admin-mobile-header {
+        display: flex; /* Show the mobile header */
+    }
+
+    /* Styles for the sidebar when in mobile view */
+    .admin-sidebar {
+        position: fixed; /* Take it out of the document flow */
+        top: 0;
+        left: 0;
+        bottom: 0;
+        transform: translateX(-100%); /* Start hidden off-screen */
+        z-index: 1001; /* Above all other content */
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        width: 280px; /* A bit wider for mobile touch targets */
+    }
+
+    .admin-sidebar.open {
+        transform: translateX(0); /* Slide in when open */
+        box-shadow: 5px 0 25px rgba(0,0,0,0.4);
+    }
+}

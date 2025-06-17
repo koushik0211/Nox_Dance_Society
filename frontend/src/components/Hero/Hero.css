@@ -130,6 +130,39 @@
 }
 
 /* Responsive Styles */
+
+/* Add this to your existing Hero.css */
+
+/* ... (your existing .hero-section, .hero-container, .hero-content, etc. styles) ... */
+
+/* Media Query for Very Wide Screens */
+@media screen and (min-width: 1600px) { /* Adjust this breakpoint as needed */
+    .hero-container {
+        max-width: 1500px; /* Increase max-width */
+        /* You might also want to increase the gap between content and logo if they feel too close */
+        gap: 180px; /* Example: increased gap */
+    }
+
+   
+}
+
+@media screen and (min-width: 1900px) { /* For even wider screens */
+    .hero-container {
+        max-width: 2000px; /* Further increase */
+        gap: 400px;
+        /* Potentially increase padding on the .hero-section itself if content feels too close to edges */
+        /* padding: 100px 5% 120px 5%; */ /* Example: using percentage padding */
+    }
+   
+     .hero-heading-main { 
+        font-size: 4.5rem; /* Slightly larger font for very wide screens */
+    }
+    .hero-heading-sub { 
+        font-size: 4.3rem; /* Slightly larger font */
+    }
+}
+
+
 @media screen and (max-width: 1100px) {
      /* Adjust font size slightly earlier if needed */
     .hero-heading-main { font-size: 3.5rem; }

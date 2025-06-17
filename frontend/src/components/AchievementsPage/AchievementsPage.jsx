@@ -1,40 +1,13 @@
-import React from 'react';
+// frontend/src/components/AchievementsPage/AchievementsPage.js
+import React, { useState, useEffect } from 'react'; // Import useState and useEffect
 import { motion } from 'framer-motion';
-import AchievementCard from './AchievementCard'; // Using the V3 card component
+import AchievementCard from './AchievementCard';
+import axios from 'axios'; // Import axios for API calls
+import { FaSpinner } from 'react-icons/fa'; // For loading indicator
 import './AchievementsPage.css';
 
-// Placeholder Data - ENSURE YOU HAVE ACTUAL OR GOOD PLACEHOLDER DATA
-// AND THAT teamMemberIdsInvolved MATCHES IDs IN currentTeamMembersData
-const achievementsData = [
-    { 
-        id: 'ach1', 
-        year: "2024", 
-        title: "1ST PLACE - OASIS'24, BITS PILANI", 
-        imageUrl: "/assets/achievements/bits.jpg", // *** USE YOUR ACTUAL IMAGE PATH ***
-        description: "We secured the FIRST position in Razzmatazz'24 organized by BITS PILANI with our spectacular group performance.", 
-        teamMemberIdsInvolved: ['exec1', 'core1', 'member1', 'member2', 'pastMemberXYZ'], 
-    },
-    { 
-        id: 'ach2', 
-        year: "2024", 
-        title: "1ST PLACE - ZEITGEIST'24, IIT ROPAR", 
-        imageUrl: "/assets/achievements/ropar.jpg", // *** USE YOUR ACTUAL IMAGE PATH ***
-        description: "We secured the FIRST position in Xuberance'24 organized by IIT ROPAR with our spectacular group performance.", 
-        teamMemberIdsInvolved: ['member4', 'member6', 'core3'], 
-    },
-     { 
-        id: 'ach3', 
-        year: "2023", 
-        title: "Runners Up - SAVISKAR'24, CGC MOHALI", 
-        imageUrl: "/assets/achievements/cgc.jpg", // *** USE YOUR ACTUAL IMAGE PATH ***
-        description: "Secured the Runners Up position in the group dance competition held during Saviskar held at cgc mohali.", 
-        teamMemberIdsInvolved: ['exec1','exec2','core1', 'member3', 'member4'], 
-    },
-    // Add more achievements following this simplified structure
-];
-
-// Placeholder current team data (needed for the modal)
-// Ensure IDs here match what you might use in teamMemberIdsInvolved
+// Placeholder for CURRENT team data (needed for the modal)
+// In a real app, this might come from context or a separate API call.
 const currentTeamMembersData = [
     { id: 'exec1', name: "Priya Sharma", position: "President" }, { id: 'exec2', name: "Amit Singh", position: "Vice President" },
     { id: 'exec3', name: "Sneha Reddy", position: "General Secretary" }, { id: 'exec4', name: "Vikram Kumar", position: "Treasurer" },
@@ -51,26 +24,42 @@ const currentTeamMembersData = [
 
 
 const AchievementsPage = () => {
+    // --- NEW STATE VARIABLES ---
+    const [achievements, setAchievements] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
+    // --- NEW useEffect HOOK TO FETCH DATA ---
+    useEffect(() => {
+        const fetchAchievements = async () => {
+            const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+            
+            try {
+                // Make the API call to your public GET endpoint for achievements
+                const response = await axios.get(`${BACKEND_URL}/api/achievements`);
+                
+                // The backend already sorts the data by year, so we can use it directly
+                setAchievements(response.data);
+                setError(null);
+
+            } catch (err) {
+                console.error("Failed to fetch achievements:", err);
+                setError("Could not load achievements. Please try again later.");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchAchievements();
+    }, []); // Empty array ensures this runs once on component mount
+
     const pageVariants = {
         initial: { opacity: 0, y: 30 },
-        animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut", delayChildren: 0.3 } }, 
+        animate: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut", delayChildren: 0.3 } },
         exit: { opacity: 0, y: -30, transition: { duration: 0.5, ease: "easeIn" } }
     };
-    const headerVariants = {
-        initial: { opacity: 0, y: -40, scale: 0.9 },
-        animate: { opacity: 1, y: 0, scale: 1, transition: { type: "spring", stiffness: 90, damping: 15, delay: 0.1 }}
-    };
-    const backgroundTextFadeIn = {
-        initial: { opacity: 0, scale: 1.2 },
-        animate: { opacity: 1, scale: 1, transition: { duration: 2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }} 
-    };
-
-    const sortedAchievements = [...achievementsData].sort((a, b) => {
-        if (b.year !== a.year) {
-            return parseInt(b.year) - parseInt(a.year);
-        }
-        return a.title.localeCompare(b.title);
-    });
+    const headerVariants = { /* ... same as before ... */ };
+    const backgroundTextFadeIn = { /* ... same as before ... */ };
 
     return (
         <div className="achievements-page-wrapper">
@@ -102,19 +91,28 @@ const AchievementsPage = () => {
                     ></motion.div>
                 </header>
 
-                <div className="achievements-list"> {/* Using list class for single column */}
-                    {sortedAchievements.length > 0 ? (
-                        sortedAchievements.map((achievement) => ( // No index needed if card handles its own whileInView
-                            <AchievementCard 
-                                key={achievement.id} 
-                                achievement={achievement}
-                                currentTeamMembers={currentTeamMembersData} 
-                            />
-                        ))
-                    ) : (
-                        <p className="no-achievements-message">Our trophy shelf is waiting for its next additions!</p>
-                    )}
-                </div>
+                {/* --- NEW CONDITIONAL RENDERING --- */}
+                {loading ? (
+                    <div className="loading-spinner-container">
+                        <FaSpinner className="loading-spinner" /> Loading Achievements...
+                    </div>
+                ) : error ? (
+                    <div className="admin-error-message" style={{textAlign: 'center', maxWidth: '600px', margin: '2rem auto'}}>{error}</div>
+                ) : (
+                    <div className="achievements-list">
+                        {achievements.length > 0 ? (
+                            achievements.map((achievement, index) => (
+                                <AchievementCard 
+                                    key={achievement._id} // Use database _id for key
+                                    achievement={achievement}
+                                    currentTeamMembers={currentTeamMembersData} 
+                                />
+                            ))
+                        ) : (
+                            <p className="no-achievements-message">Our trophy shelf is waiting for its next additions! Check back soon.</p>
+                        )}
+                    </div>
+                )}
             </motion.div>
         </div>
     );

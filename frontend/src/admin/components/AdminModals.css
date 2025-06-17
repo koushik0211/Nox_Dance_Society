@@ -1,0 +1,349 @@
+/* frontend/src/admin/components/AdminModals.css */
+/* Base styles for all admin modals */
+.admin-modal-overlay { position: fixed; inset: 0; z-index: 1010; }
+.admin-modal-backdrop { 
+    position: fixed; inset: 0; background-color: rgba(5, 2, 8, 0.85); 
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+}
+.admin-modal-scroll-container { position: fixed; inset: 0; overflow-y: auto; display: flex; align-items: center; justify-content: center; }
+.admin-modal-center-content { display: flex; align-items: center; justify-content: center; padding: 1rem; width: 100%; }
+
+.admin-modal-panel {
+    background-color: #100D1C;
+    padding: 1.8rem 2rem; border-radius: 12px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6), 0 0 0 1px rgba(168, 85, 247, 0.25);
+    color: #d1d5db; text-align: left; position: relative;
+    width: 90%; max-width: 600px;
+    max-height: 90vh; display: flex; flex-direction: column;
+}
+.admin-modal-panel.large {
+    max-width: 950px; /* For two-column modals */
+}
+
+.admin-modal__title {
+    font-size: 1.3rem; font-weight: 600; color: #e5e7eb;
+    margin: 0; padding: 0 2rem 1.2rem 0; /* Space for close button */
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+    display: flex; align-items: center; gap: 0.6em;
+}
+.admin-modal__title svg { color: #a855f7; }
+
+.admin-modal__close-btn {
+    position: absolute; top: 15px; right: 15px;
+    background: none; border: none; font-size: 1.4rem;
+    color: #718096; cursor: pointer; transition: color 0.2s ease;
+    padding: 0.5rem;
+}
+.admin-modal__close-btn:hover { color: #e5e7eb; }
+
+.admin-modal__body {
+    padding-top: 1.5rem;
+    overflow-y: auto;
+}
+.admin-modal__body.two-column {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media screen and (min-width: 768px) {
+    .admin-modal__body.two-column { grid-template-columns: 1fr 1fr; }
+}
+.modal-column h4 {
+    font-size: 1rem; color: #a855f7; font-weight: 500;
+    margin-bottom: 1rem; border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+    padding-bottom: 0.5rem;
+}
+.modal-column p {
+    font-size: 0.9rem;
+    margin-bottom: 0.7rem;
+    color: #b0bec5;
+    line-height: 1.6;
+}
+.modal-column p strong {
+    color: #d1d5db;
+    font-weight: 500;
+}
+.video-link-button {
+    display: inline-flex; align-items: center; gap: 0.5em;
+    background: rgba(168, 85, 247, 0.1); color: #c084fc;
+    padding: 0.5rem 1rem; text-decoration: none; border-radius: 6px;
+    font-weight: 500; margin-top: 1rem;
+    transition: background-color 0.2s ease;
+}
+.video-link-button:hover { background-color: rgba(168, 85, 247, 0.2); }
+
+.status-updater { margin-top: 1.5rem; border-top: 1px solid rgba(168, 85, 247, 0.1); padding-top: 1.5rem; }
+.status-updater .status-btn {
+    padding: 0.4rem 0.8rem; border: 1px solid; margin-right: 0.5rem;
+    font-size: 0.8rem; border-radius: 4px; cursor: pointer;
+}
+.status-btn.selected { color: #4ade80; border-color: #4ade80; }
+.status-btn.not-selected { color: #f87171; border-color: #f87171; }
+.status-btn.pending { color: #facc15; border-color: #facc15; }
+
+
+/* Review Styles */
+.reviews-list { max-height: 250px; overflow-y: auto; padding-right: 5px; }
+.review-item {
+    background-color: rgba(255,255,255,0.02);
+    padding: 0.8rem;
+    border-radius: 6px;
+    border-left: 3px solid #8155f7;
+    margin-bottom: 1rem;
+}
+.review-notes { font-style: italic; color: #e5e7eb; margin: 0 0 0.5rem 0 !important; }
+.review-author { text-align: right; font-size: 0.75rem !important; color: #8a8a9e; margin: 0 !important; }
+
+.review-form { margin-top: 1.5rem; border-top: 1px solid rgba(168, 85, 247, 0.1); padding-top: 1.5rem; }
+.review-form h4 { margin-bottom: 0.8rem; }
+.review-form textarea, .review-form input {
+    width: 100%; padding: 0.6rem; border-radius: 4px;
+    background-color: #1A1724; border: 1px solid #302840; color: #e0e0e0;
+    margin-bottom: 0.8rem;
+}
+.review-form textarea { min-height: 80px; }
+
+/* Add these new styles to your existing AdminModals.css */
+/* ... (all existing modal styles) ... */
+.admin-modal-panel.comparison-modal {
+    max-width: 1100px; /* Wider modal for comparison grid */
+}
+.review-comparison-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+.review-comparison-card {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    padding: 1rem;
+    border-radius: 8px;
+}
+.review-comparison-card__judge {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+}
+.review-comparison-card__notes {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #b0bec5;
+}
+
+.compare-reviews-button {
+    background: transparent;
+    border: 1px solid #a855f7;
+    color: #a855f7;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+.compare-reviews-button:hover:not(:disabled) {
+    background-color: rgba(168, 85, 247, 0.1);
+    color: #c084fc;
+}
+.compare-reviews-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.review-form textarea {
+    min-height: 100px;
+    margin-bottom: 0.5rem;
+}
+.review-form input {
+    margin-bottom: 1rem;
+}
+.review-form .admin-submit-button.small {
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    width: 100%;
+}
+
+.admin-error-message.small {
+    font-size: 0.8rem;
+    padding: 0.6rem;
+    margin-bottom: 0.8rem;
+}
+
+.review-placeholder {
+    padding: 2rem 1rem;
+    text-align: center;
+    font-style: italic;
+    color: #8a8a9e;
+    background-color: rgba(255,255,255,0.02);
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+/* Add these styles to your existing AdminModals.css */
+
+.admin-modal-panel.comparison-modal {
+    max-width: 1100px; /* Wider modal for comparison grid */
+}
+.review-comparison-grid {
+    display: grid;
+    /* Create responsive columns, aiming for 3 on wider screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.review-comparison-card {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    padding: 1.2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+.review-comparison-card__judge {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.review-comparison-card__judge .score {
+    font-size: 0.9rem;
+    color: #f5b01d; /* Gold for score */
+}
+.review-comparison-card__notes {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #b0bec5;
+    flex-grow: 1; /* Allow notes to take up space */
+}
+
+/* Add these new/updated styles to AdminModals.css */
+
+.review-item {
+    background-color: rgba(255,255,255,0.02);
+    padding: 0.8rem;
+    border-radius: 6px;
+    border-left: 3px solid #8155f7;
+    margin-bottom: 1rem;
+    position: relative; /* For delete button positioning */
+}
+.review-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+.review-author { 
+    font-weight: 600;
+    color: #d1d5db;
+    margin: 0 !important; 
+}
+.review-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #facc15; /* Gold color for score */
+}
+.review-notes { 
+    font-style: italic; 
+    color: #b0bec5; 
+    margin: 0 0 0.5rem 0 !important; 
+    padding-right: 25px; /* Space for delete button */
+}
+
+
+.delete-review-button:hover {
+    color: #ef4444; /* Red on hover */
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Styles for Comparison Modal */
+.review-comparison-card__judge .score {
+    font-size: 0.9rem;
+    color: #facc15;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+}
+
+/* Find and update these existing styles in AdminModals.css */
+
+.review-item {
+    background-color: rgba(255,255,255,0.02);
+    padding: 0.8rem 1rem; /* Adjusted padding */
+    border-radius: 6px;
+    border-left: 3px solid #8155f7;
+    margin-bottom: 1rem;
+    position: relative; 
+}
+
+.review-item-header {
+    display: flex; /* Use Flexbox */
+    justify-content: space-between; /* Pushes author/score and delete button apart */
+    align-items: center;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem; /* Add some gap */
+}
+
+.review-author { 
+    font-weight: 600;
+    color: #d1d5db;
+    margin: 0 !important; 
+    flex-grow: 1; /* Allow author name to take up space */
+}
+
+.review-score {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #facc15; 
+    flex-shrink: 0; /* Prevent score from shrinking */
+}
+
+.review-notes { 
+    font-style: italic; 
+    color: #b0bec5; 
+    margin: 0 !important; 
+    font-size: 0.9rem; /* Make notes slightly larger */
+}
+
+.delete-review-button {
+    /* No longer needs to be positioned absolutely */
+    /* position: absolute; */
+    /* top: 5px; */
+    /* right: 5px; */
+    background: none;
+    border: none;
+    color: #6b7280; 
+    cursor: pointer;
+    padding: 0.3rem;
+    border-radius: 50%;
+    transition: color 0.2s, background-color 0.2s;
+    font-size: 0.8rem;
+    flex-shrink: 0; /* Prevent delete button from shrinking */
+}
+.delete-review-button:hover {
+    color: #ef4444; 
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Add this to also move the button inside the header on hover for a cleaner look */
+/* This requires a small JSX change */
+.review-item .review-item-header .delete-review-button {
+    opacity: 0; /* Hide by default */
+}
+.review-item:hover .review-item-header .delete-review-button {
+    opacity: 1; /* Show on hover of the whole review item */
+}

@@ -1,0 +1,306 @@
+/* Shared styles for list/table management pages */
+.manage-page {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.manage-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.manage-page-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.add-new-button {
+    background: linear-gradient(90deg, #a855f7, #8b5cf6);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+.add-new-button:hover {
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.manage-table-container {
+    background-color: #110d1c;
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.manage-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.manage-table th, .manage-table td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.1);
+}
+
+.manage-table th {
+    background-color: rgba(168, 85, 247, 0.05);
+    font-size: 0.8rem;
+    color: #a893d5;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.manage-table tr:last-child td {
+    border-bottom: none;
+}
+
+.manage-table tr:hover {
+    background-color: rgba(168, 85, 247, 0.03);
+}
+
+.table-image-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.status-badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.status-badge.active { background-color: rgba(74, 222, 128, 0.1); color: #4ade80; }
+.status-badge.inactive { background-color: rgba(248, 113, 113, 0.1); color: #f87171; }
+
+.action-buttons { display: flex; gap: 0.75rem; }
+.action-button {
+    background: none; border: none; font-size: 1rem;
+    padding: 0.5rem; border-radius: 4px;
+    cursor: pointer; transition: background-color 0.2s ease, color 0.2s ease;
+}
+.action-button.edit { color: #60a5fa; }
+.action-button.edit:hover { background-color: rgba(96, 165, 250, 0.1); }
+.action-button.delete { color: #f87171; }
+.action-button.delete:hover { background-color: rgba(248, 113, 113, 0.1); }
+
+.loading-spinner-container { text-align: center; padding: 3rem; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 1rem; }
+.loading-spinner { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.no-data-cell { text-align: center; padding: 2rem; color: #888; }
+
+/* Add these new styles to your existing ManagePages.css */
+.manage-section {
+    margin-bottom: 3rem;
+}
+.manage-section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+/* ADD THESE STYLES */
+.active-icon {
+    color: #4ade80; /* Green checkmark */
+    font-size: 1.2rem;
+} 
+
+/* Add these new styles to your existing ManagePages.css */
+.filters-container {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.search-box, .filter-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1A1724;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #302840;
+}
+.search-box svg, .filter-box svg {
+    color: #8a8a9e;
+}
+.search-box input, .filter-box select {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    font-size: 0.9rem;
+}
+.search-box input:focus, .filter-box select:focus {
+    outline: none;
+}
+.action-button.view {
+    color: #60a5fa;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+.action-button.view:hover {
+    background-color: rgba(96, 165, 250, 0.1);
+}
+
+.status-badge.pending { background-color: rgba(250, 204, 21, 0.1); color: #facc15; }
+.status-badge.not-selected { background-color: rgba(248, 113, 113, 0.1); color: #f87171; }
+
+/* Add these new styles to your existing ManagePages.css */
+/* ... (all existing styles) ... */
+
+.judge-name-input-container {
+    background-color: #1A1724;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #302840;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.judge-name-input-container label {
+    font-weight: 500;
+    color: #a855f7;
+    font-size: 0.9rem;
+}
+.judge-name-input-container input {
+    background: transparent;
+    border: none;
+    color: #e0e0e0;
+    font-size: 0.95rem;
+    padding: 0.2rem;
+}
+.judge-name-input-container input:focus {
+    outline: none;
+}
+
+.action-button.view {
+    gap: 0.5em; /* Space between icon and text */
+}
+.status-badge.pending { background-color: rgba(250, 204, 21, 0.1); color: #facc15; }
+.status-badge.not-selected { background-color: rgba(248, 113, 113, 0.1); color: #f87171; }
+
+/* Find and update these existing styles in ManagePages.css */
+/* ... */
+.filter-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: #1A1724;
+    padding: 0.1rem 0.8rem; /* Adjusted padding for select height */
+    border-radius: 6px;
+    border: 1px solid #302840;
+}
+.filter-box svg {
+    color: #8a8a9e;
+}
+.filter-box select {
+    background: none;
+    border: none;
+    color: #e0e0e0; /* Color for the selected value */
+    font-size: 0.9rem;
+    padding: 0.4rem 0.2rem; /* Give it some vertical space */
+    cursor: pointer;
+}
+.filter-box select:focus {
+    outline: none;
+}
+/* THIS IS THE KEY FIX FOR THE DROPDOWN LIST */
+.filter-box select option {
+    background: #1A1724; /* Match dropdown background to select bg */
+    color: #e0e0e0; /* Make option text bright */
+    /* For some browsers, you might need to style the select itself */
+}
+/* For Firefox, which sometimes doesn't style options well */
+select {
+    color-scheme: dark;
+}
+
+/* Add these new/updated styles to your existing ManagePages.css */
+
+/* ... (all existing styles for .manage-page, .manage-page-header, filters, etc. remain the same) ... */
+
+.action-buttons { 
+    display: flex; 
+    gap: 0.5rem; /* Slightly smaller gap to fit more buttons */
+    align-items: center;
+}
+.action-button {
+    background: none; 
+    border: 1px solid transparent; /* Base border */
+    font-size: 0.9rem; /* Uniform font size */
+    padding: 0.5rem; 
+    border-radius: 6px; /* Uniform radius */
+    cursor: pointer; 
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action-button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    background-color: transparent !important; /* Ensure disabled is not visually confusing */
+}
+
+.action-button.view { 
+    color: #60a5fa; 
+    border-color: #60a5fa3b;
+}
+.action-button.view:hover:not(:disabled) { 
+    background-color: rgba(96, 165, 250, 0.1); 
+    color: #93c5fd;
+}
+
+/* NEW: Styles for the Compare button */
+.action-button.compare {
+    color: #facc15; /* Gold/Yellow color for comparison */
+    border-color: #facc153b;
+}
+.action-button.compare:hover:not(:disabled) {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: #fde047;
+}
+
+.action-button.delete { 
+    color: #f87171; 
+    border-color: #f871713b;
+}
+.action-button.delete:hover:not(:disabled) { 
+    background-color: rgba(248, 113, 113, 0.1); 
+    color: #fda4af;
+}
+
+/* Update status badge for better contrast/readability if needed */
+.status-badge.not-selected { background-color: rgba(239, 68, 68, 0.15); color: #fca5a5; }
+
+/* Adding S.No. column style if needed */
+.manage-table td[data-label="S.No."] {
+    font-weight: 600;
+    color: #8a8a9e;
+}

@@ -1,0 +1,144 @@
+/* frontend/src/admin/pages/AdminDashboardPage.css */
+
+.admin-dashboard__title {
+    font-size: clamp(2rem, 4vw, 2.8rem); /* Responsive font size */
+    font-weight: 700;
+    color: #e5e7eb;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.admin-dashboard__title span {
+    background: linear-gradient(120deg, #c084fc, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.admin-dashboard__subtitle {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    margin-bottom: 3.5rem; /* More space before cards */
+    max-width: 600px; /* Constrain subtitle width */
+}
+
+/* Redesigned Quick Links Container */
+.admin-dashboard__quick-links {
+    display: grid;
+    /* Create a responsive grid that can be 2 or 3 columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+}
+
+@media screen and (min-width: 1200px) {
+    .admin-dashboard__quick-links {
+        /* On larger screens, you might want a fixed 3 column layout */
+        /* grid-template-columns: repeat(3, 1fr); */
+    }
+}
+
+
+.quick-link-card {
+    background: linear-gradient(145deg, rgba(22, 18, 33, 0.9), rgba(10, 8, 16, 0.95));
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    padding: 1.8rem 1.5rem;
+    border-radius: 10px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the start */
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    min-height: 120px; /* Give cards a consistent minimum height */
+}
+
+.quick-link-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3), 0 0 20px rgba(168, 85, 247, 0.1);
+}
+
+/* Glowing orb effect on hover */
+.quick-link-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotateGlow 10s linear infinite;
+}
+
+.quick-link-card:hover::before {
+    opacity: 1;
+}
+
+@keyframes rotateGlow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.quick-link-icon {
+    font-size: 1.8rem;
+    color: #a855f7;
+    margin-bottom: 1rem;
+    background-color: rgba(168, 85, 247, 0.1);
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+.quick-link-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e5e7eb;
+    margin-bottom: 0.4rem;
+}
+
+.quick-link-desc {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    line-height: 1.5;
+}
+
+/* NEW Info Panel to fill space */
+.dashboard-info-panel {
+    margin-top: 4rem;
+    background: rgba(16, 13, 28, 0.5);
+    border: 1px solid rgba(168, 85, 247, 0.1);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.dashboard-info-panel h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 1rem;
+}
+
+.dashboard-info-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dashboard-info-panel li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.8rem;
+    color: #b0bec5;
+    font-size: 0.95rem;
+}
+
+.dashboard-info-panel li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #a855f7;
+    font-weight: bold;
+}
