@@ -29,7 +29,9 @@ const app = express();
 // a. CORS (Cross-Origin Resource Sharing) Middleware
 const allowedOrigins = [
     'http://localhost:3000', // For your main frontend dev server
-    'http://localhost:3001', // For your admin frontend dev server if on a different port
+    'http://localhost:3001',
+     'https://nox-dance-society-web.vercel.app/', // For your deployed frontend
+      // For your admin frontend dev server if on a different port
     // Add your deployed frontend and admin URLs here later
     // 'https://nox-frontend.onrender.com',
     // 'https://nox-admin.onrender.com'
@@ -75,9 +77,11 @@ app.use((err, req, res, next) => {
 });
 
 // 10. Define Port and Start Server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, () => {
-    console.log(
-        `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
-    );
-});  
+// const PORT = process.env.PORT || 5001;
+// app.listen(PORT, () => {
+//     console.log(
+//         `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
+//     );
+// });  
+
+module.exports = app;
