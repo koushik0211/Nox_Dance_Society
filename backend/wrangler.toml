@@ -1,0 +1,10 @@
+name = "nox-api"
+
+# CRITICAL CHANGE: Point to the new adapter file.
+main = "index.js"
+
+# Use a recent stable date.
+compatibility_date = "2024-09-23" 
+
+# Enable Node.js compatibility layer. This is still essential.
+compatibility_flags = [ "nodejs_compat" ]
