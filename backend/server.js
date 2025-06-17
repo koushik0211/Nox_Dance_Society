@@ -30,7 +30,7 @@ const app = express();
 const allowedOrigins = [
     'http://localhost:3000', // For your main frontend dev server
     'http://localhost:3001',
-     'https://nox-dance-society-web.vercel.app/', // For your deployed frontend
+     'https://nox-dance-society-web.onrender.com', // For your deployed frontend
       // For your admin frontend dev server if on a different port
     // Add your deployed frontend and admin URLs here later
     // 'https://nox-frontend.onrender.com',
@@ -85,3 +85,4 @@ app.listen(PORT, () => {
 });  
 
 // module.exports = app;
+
