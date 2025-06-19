@@ -28,9 +28,9 @@ const app = express();
 // 5. Apply Middleware
 // a. CORS (Cross-Origin Resource Sharing) Middleware
 const allowedOrigins = [
+    'https://noxdancesociety.com',
+    'https://www.noxdancesociety.com',
     'https://nox-dance-society-front.vercel.app',
-                                              // 'https://nox-dance-society-web.onrender.com',
-
     'http://localhost:3000', // For your main frontend dev server
     'http://localhost:3001',
       // For your deployed frontend
@@ -89,4 +89,10 @@ app.use((err, req, res, next) => {
 
 
 module.exports = app;
+
+
+// chnages are made for vercel back end deployement, if want to make normal then make following chnages
+// 1. Uncomment the PORT definition and app.listen() block at the end of the file.
+// 2.remove api index.js file and use this server.js file directly in your frontend code.
+// change start script in package.json to "start": "node server.js" or whatever you name this file.
 
