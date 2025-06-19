@@ -1,9 +1,9 @@
 {
-  "short_name": "Nox Dance Society",
+  "short_name": "NOX",
   "name": "Nox Dance Society",
   "icons": [
     {
-      "src": "assets/noxFoot.png",
+      "src": "noxfav.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
