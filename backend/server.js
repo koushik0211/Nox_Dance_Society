@@ -62,6 +62,9 @@ app.use('/api/tutorials', tutorialRoutes);
 app.use('/api/achievements', achievementRoutes);
 app.use('/api/audition-rules', auditionRuleRoutes);
 
+app.use('/api/audition-status', require('./routes/auditionStatusRoutes')); // Add this line
+
+
 // 7. Serve Static Files section REMOVED as we are using Firebase Storage
 
 // 8. Basic Root Route (for testing if the API is up)
@@ -80,15 +83,15 @@ app.use((err, req, res, next) => {
 });
 
 // 10. Define Port and Start Server
-// const PORT = process.env.PORT || 5001;
-// app.listen(PORT, () => {
-//     console.log(
-//         `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
-//     );
-// });  
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, () => {
+    console.log(
+        `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
+    );
+});  
 
 
-module.exports = app;
+// module.exports = app;
 
 
 // chnages are made for vercel back end deployement, if want to make normal then make following chnages

@@ -103,11 +103,19 @@ const AuditionDetailModal = ({ isOpen, setIsOpen, audition, onUpdate, judgeName 
                                         <p><strong>Why Nox:</strong> {audition.whyNox || 'N/A'}</p> 
                                         <p><strong>Other Skills:</strong> {audition.otherSkills || 'N/A'}</p>
                                         
-                                        {audition.danceVideoUrl && 
-                                            <a href={audition.danceVideoUrl} target="_blank" rel="noopener noreferrer" className="video-link-button">
-                                                <FaVideo/> Watch Audition Video
-                                            </a>
-                                        }
+                                        {audition.danceVideoUrl ? (
+                                        <a 
+                                            href={audition.danceVideoUrl} 
+                                            target="_blank" 
+                                            rel="noopener noreferrer" 
+                                            className="video-link-button"
+                                            title={`Open link: ${audition.danceVideoUrl}`}
+                                        >
+                                            <FaVideo/> Watch Audition Video
+                                        </a>
+                                    ) : (
+                                        <p className="no-video-link">No video link submitted.</p>
+                                    )}
                                         <div className="status-updater">
                                             <strong>Status: </strong>
                                             <button onClick={() => handleStatusChange('Selected')} className="status-btn selected"><FaCheck/> Select</button>

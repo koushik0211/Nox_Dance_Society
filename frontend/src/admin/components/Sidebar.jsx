@@ -4,6 +4,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { FaTachometerAlt, FaUsers, FaChalkboardTeacher, FaTrophy, FaGavel, FaSignOutAlt, FaTimes,FaClipboardList } from 'react-icons/fa';
 import './Sidebar.css';
+import { FaToggleOn } from 'react-icons/fa';
+
 
 // Now accepts isOpen and toggleSidebar props
 const Sidebar = ({ isOpen, toggleSidebar }) => {
@@ -52,6 +54,9 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
                 <NavLink to="/admin/achievements" className="nav-item" onClick={handleLinkClick}><FaTrophy /> Achievements</NavLink>
                 <NavLink to="/admin/rules" className="nav-item" onClick={handleLinkClick}><FaGavel /> Audition Rules</NavLink>
                 <NavLink to="/admin/audition-entries" className={({isActive}) => isActive ? "nav-item active" : "nav-item"}><FaClipboardList /> Audition Entries</NavLink>
+<NavLink to="/admin/status" className={({isActive}) => isActive ? "nav-item active" : "nav-item"} onClick={handleLinkClick}>
+                    <FaToggleOn /> Audition Status
+                </NavLink>
             </nav>
 
             <button onClick={handleLogout} className="admin-sidebar__logout-btn"><FaSignOutAlt /> Logout</button>

@@ -242,3 +242,15 @@
         font-size: 1.8rem;
     }
 }
+
+/* ADD THIS */
+.nav-link-button.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: #555; /* Example disabled style */
+    border-color: #777;
+}
+.nav-link-button.disabled:hover {
+    transform: none; /* Disable hover effect */
+    background-color: #555;
+}

@@ -347,3 +347,16 @@
 .review-item:hover .review-item-header .delete-review-button {
     opacity: 1; /* Show on hover of the whole review item */
 }
+
+/* Add this to your existing AdminModals.css */
+
+.no-video-link {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: #8a8a9e; /* Muted text color */
+    background-color: rgba(255,255,255,0.03);
+    padding: 0.8rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    text-align: center;
+}

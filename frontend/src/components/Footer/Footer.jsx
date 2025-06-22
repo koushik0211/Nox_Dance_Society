@@ -58,7 +58,7 @@ const Footer = () => {
                     <motion.div className="footer-social" variants={itemVariants}>
                         <h4>Useful Links</h4>
                         <div className="social-icons">
-                            <motion.a href="https://instagram.com" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.2, color: '#a855f7' }} title="Instagram">
+                            <motion.a href="https://www.instagram.com/nox_dance_society/?hl=en" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.2, color: '#a855f7' }} title="Instagram">
                                 <FaInstagram />
                             </motion.a>
                             <motion.a href="https://youtube.com" target="_blank" rel="noopener noreferrer" whileHover={{ scale: 1.2, color: '#a855f7' }} title="YouTube">
