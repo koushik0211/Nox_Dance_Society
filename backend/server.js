@@ -62,7 +62,6 @@ app.use('/api/tutorials', tutorialRoutes);
 app.use('/api/achievements', achievementRoutes);
 app.use('/api/audition-rules', auditionRuleRoutes);
 
-app.use('/api/audition-status', require('./routes/auditionStatusRoutes')); // Add this line
 
 
 // 7. Serve Static Files section REMOVED as we are using Firebase Storage

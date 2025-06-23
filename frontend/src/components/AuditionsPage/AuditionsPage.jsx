@@ -4,8 +4,9 @@ import { motion } from 'framer-motion';
 import RulesModal from './RulesModal';
 import './AuditionsPage.css'; 
 import axios from 'axios'; 
-import { FaSpinner} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
+
 
 
 // import { storage } from '../../firebase';
@@ -32,6 +33,19 @@ const TextAreaField = ({ id, name, label, placeholder, value, onChange, rows = 4
 // );
 
 const AuditionsPage = () => {
+
+    // ===================================================================
+    //                     MANUAL TOGGLE CONTROL
+    //  Set this to `true` when auditions are open.
+    //  Set this to `false` when auditions are closed.
+    //  This is the only line you need to change to switch between the two views.
+    // ===================================================================
+    const ARE_AUDITIONS_OPEN = true; 
+
+
+
+
+
     const initialFormData = {
         fullName: '', rollNumber: '', phoneNumber: '', emailAddress: '',
         branch: '', rateYourself: '', whyNox: '',
@@ -47,8 +61,7 @@ const AuditionsPage = () => {
     //  const [statusData, setStatusData] = useState({ isOpen: false, message: '' });
     // const [statusLoading, setStatusLoading] = useState(true);
 
-    // --- STATE FOR AUDITION STATUS ---
-        const [auditionStatus, setAuditionStatus] = useState({ isOpen: false, message: '', isLoading: true });
+    
 
 
     // --- STATE FOR RULES DATA ---
@@ -56,54 +69,7 @@ const AuditionsPage = () => {
     const [rulesLoading, setRulesLoading] = useState(true);
     const [rulesError, setRulesError] = useState(null);
 
-     useEffect(() => {
-        const fetchAuditionInfo = async () => {
-            const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
-            try {
-                // Fetch both pieces of data simultaneously
-                const [statusRes, rulesRes] = await Promise.all([
-                    axios.get(`${BACKEND_URL}/api/audition-status`),
-                    axios.get(`${BACKEND_URL}/api/audition-rules/active`)
-                ]);
-
-                setAuditionStatus({ 
-                    isOpen: statusRes.data.areAuditionsOpen, 
-                    message: statusRes.data.messageWhenClosed,
-                    isLoading: false 
-                });
-                setRulesData(rulesRes.data);
-
-            } catch (error) {
-                console.error("Failed to fetch audition info:", error);
-                setAuditionStatus({ 
-                    isOpen: false, 
-                    message: 'Could not verify audition status. Please try again later.',
-                    isLoading: false
-                });
-            }
-        };
-
-        fetchAuditionInfo();
-    }, []);
-
-    // useEffect(() => {
-    //     const fetchStatus = async () => {
-    //         try {
-    //             const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
-    //             const res = await axios.get(`${BACKEND_URL}/api/audition-status`);
-    //             setStatusData({ 
-    //                 isOpen: res.data.areAuditionsOpen, 
-    //                 message: res.data.messageWhenClosed 
-    //             });
-    //         } catch (error) {
-    //             console.error("Could not fetch audition status", error);
-    //             setStatusData({ isOpen: false, message: 'Could not verify audition status. Please try again later.' });
-    //         } finally {
-    //             setStatusLoading(false);
-    //         }
-    //     };
-    //     fetchStatus();
-    // }, []);
+   
 
     // --- useEffect TO FETCH AUDITION RULES ---
     useEffect(() => {
@@ -126,7 +92,7 @@ const AuditionsPage = () => {
             }
         };
         fetchActiveRules();
-    }, []);
+    }, [ARE_AUDITIONS_OPEN]);
 
      const handleChange = (e) => {
         const { name, value } = e.target;
@@ -226,25 +192,6 @@ const AuditionsPage = () => {
         }
     };
 
-    if (auditionStatus.isLoading) {
-        return (
-            <div className="auditions-page-wrapper loading-fullscreen">
-                <FaSpinner className="loading-spinner" /> Verifying Audition Status...
-            </div>
-        );
-    }
-
-    if (!auditionStatus.isOpen) {
-        return (
-            <div className="auditions-page-wrapper">
-                <div className="auditions-closed-container">
-                    <h1>Auditions Are Currently Closed</h1>
-                    <p>{auditionStatus.message}</p>
-                    <Link to="/" className="audition-form__button--submit">Back to Home</Link>
-                </div>
-            </div>
-        );
-    }
 
 
 
@@ -261,6 +208,38 @@ const AuditionsPage = () => {
         initial: { opacity: 0, y: 15 },
         animate: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 12 } }
     };
+
+     if (!ARE_AUDITIONS_OPEN) {
+        return (
+            <div className="auditions-page-wrapper">
+                <div className="auditions-closed-container">
+                    <motion.h1 
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                    >
+                        Auditions Are Currently Closed
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
+                    >
+                        Follow our social media for announcements on the next season!
+                    </motion.p>
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+                    >
+                        <Link to="/" className="auditions-closed__back-button">
+                            Back to Home
+                        </Link>
+                    </motion.div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <motion.div

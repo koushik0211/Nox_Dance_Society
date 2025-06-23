@@ -27,7 +27,6 @@ import ManageTutorialsPage from './admin/pages/ManageTutorialsPage';
 import ManageAchievementsPage from './admin/pages/ManageAchievementsPage';
 import ManageRulesPage from './admin/pages/ManageRulesPage';
 import ManageAuditionsPage from './admin/pages/ManageAuditionsPage';
-import ManageStatusPage from './admin/pages/ManageStatusPage';
  // <-- IMPORT for new feature
 // Form Components
 import TeamForm from './admin/components/TeamForm'; 
@@ -120,7 +119,6 @@ const AppContent = () => {
 
                         {/* ADDED: Route for the new Audition Entries Management Page */}
                         <Route path="audition-entries" element={<ManageAuditionsPage />} />
-                        <Route path="status" element={<ManageStatusPage />} />
 
 
                     </Route>

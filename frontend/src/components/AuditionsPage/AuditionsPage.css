@@ -333,3 +333,77 @@
   transform: scale(0.98);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
+
+
+/* Add these new styles to your AuditionsPage.css file. 
+   All other styles for .auditions-page, .audition-form, etc., remain the same. */
+
+/* Wrapper to ensure consistent page background */
+.auditions-page-wrapper {
+    min-height: 100vh;
+    background-color: #000; /* Or your page's specific dark background */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container for the "Auditions Closed" message */
+.auditions-closed-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    width: 100%;
+}
+
+.auditions-closed-container h1 {
+    font-size: clamp(2rem, 5vw, 3rem); /* Responsive font size */
+    font-weight: 700;
+    color: #a855f7; /* Your theme purple */
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.auditions-closed-container p {
+    font-size: 1.1rem;
+    color: #ccc;
+    max-width: 500px;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.auditions-closed__back-button {
+    /* Reusing button style for consistency */
+    display: inline-block;
+    background: linear-gradient(90deg, #a855f7, #8b5cf6);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.25);
+}
+
+.auditions-closed__back-button:hover {
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+}
+
+
+/* Adjust progress bar for submitting text instead of video */
+.progress-bar-foreground.submitting-animation {
+    background: linear-gradient(90deg, #a855f7, #c084fc, #a855f7);
+    background-size: 200% 100%;
+    animation: progress-indeterminate 1.5s linear infinite;
+}
+
+@keyframes progress-indeterminate {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
