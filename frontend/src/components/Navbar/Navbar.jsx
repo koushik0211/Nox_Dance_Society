@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css'; 
 import { motion } from 'framer-motion';
-import axios from 'axios'; 
+// import axios from 'axios'; 
 
 
 const Navbar = () => {
@@ -25,24 +25,24 @@ const Navbar = () => {
         }
     };
 
-     const [auditionsOpen, setAuditionsOpen] = useState(false);
-    const [closedMessage, setClosedMessage] = useState('');
+    //  const [auditionsOpen, setAuditionsOpen] = useState(false);
+    // const [closedMessage, setClosedMessage] = useState('');
 
-     useEffect(() => {
-        // Fetch status when navbar mounts
-        const fetchStatus = async () => {
-            try {
-                const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
-                const res = await axios.get(`${BACKEND_URL}/api/audition-status`);
-                setAuditionsOpen(res.data.areAuditionsOpen);
-                setClosedMessage(res.data.messageWhenClosed);
-            } catch (error) {
-                console.error("Could not fetch audition status", error);
-                setAuditionsOpen(false); // Default to closed on error
-            }
-        };
-        fetchStatus();
-    }, []);
+    //  useEffect(() => {
+    //     // Fetch status when navbar mounts
+    //     const fetchStatus = async () => {
+    //         try {
+    //             const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+    //             const res = await axios.get(`${BACKEND_URL}/api/audition-status`);
+    //             setAuditionsOpen(res.data.areAuditionsOpen);
+    //             setClosedMessage(res.data.messageWhenClosed);
+    //         } catch (error) {
+    //             console.error("Could not fetch audition status", error);
+    //             setAuditionsOpen(false); // Default to closed on error
+    //         }
+    //     };
+    //     fetchStatus();
+    // }, []);
 
 
     
@@ -105,14 +105,14 @@ const Navbar = () => {
         }
     };
 
-     const handleAuditionClick = (e) => {
-        if (!auditionsOpen) {
-            e.preventDefault(); // Stop navigation
-            alert(closedMessage || "Auditions are currently closed. Follow us on social media for updates!");
-        } else {
-            handleLinkClick('/auditions'); // Navigate normally
-        }
-    };
+    //  const handleAuditionClick = (e) => {
+    //     if (!auditionsOpen) {
+    //         e.preventDefault(); // Stop navigation
+    //         alert(closedMessage || "Auditions are currently closed. Follow us on social media for updates!");
+    //     } else {
+    //         handleLinkClick('/auditions'); // Navigate normally
+    //     }
+    // };
 
 
     return (
@@ -170,8 +170,8 @@ const Navbar = () => {
                     <motion.li className="nav-item" variants={navItemVariants}>
                         <Link 
                             to="/auditions" 
-                            className={`nav-link nav-link-button ${!auditionsOpen ? 'disabled' : ''}`}
-                            onClick={handleAuditionClick}
+                            className="nav-link nav-link-button"
+                            onClick={() => handleLinkClick('/auditions')}
                         >
                             AUDITIONS
                         </Link>

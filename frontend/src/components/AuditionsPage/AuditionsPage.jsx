@@ -44,32 +44,66 @@ const AuditionsPage = () => {
         const [isSubmitting, setIsSubmitting] = useState(false); 
 
     // const [uploadProgress, setUploadProgress] = useState(0);
-     const [statusData, setStatusData] = useState({ isOpen: false, message: '' });
-    const [statusLoading, setStatusLoading] = useState(true);
+    //  const [statusData, setStatusData] = useState({ isOpen: false, message: '' });
+    // const [statusLoading, setStatusLoading] = useState(true);
+
+    // --- STATE FOR AUDITION STATUS ---
+        const [auditionStatus, setAuditionStatus] = useState({ isOpen: false, message: '', isLoading: true });
+
 
     // --- STATE FOR RULES DATA ---
     const [rulesData, setRulesData] = useState(null);
     const [rulesLoading, setRulesLoading] = useState(true);
     const [rulesError, setRulesError] = useState(null);
 
-    useEffect(() => {
-        const fetchStatus = async () => {
+     useEffect(() => {
+        const fetchAuditionInfo = async () => {
+            const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
             try {
-                const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
-                const res = await axios.get(`${BACKEND_URL}/api/audition-status`);
-                setStatusData({ 
-                    isOpen: res.data.areAuditionsOpen, 
-                    message: res.data.messageWhenClosed 
+                // Fetch both pieces of data simultaneously
+                const [statusRes, rulesRes] = await Promise.all([
+                    axios.get(`${BACKEND_URL}/api/audition-status`),
+                    axios.get(`${BACKEND_URL}/api/audition-rules/active`)
+                ]);
+
+                setAuditionStatus({ 
+                    isOpen: statusRes.data.areAuditionsOpen, 
+                    message: statusRes.data.messageWhenClosed,
+                    isLoading: false 
                 });
+                setRulesData(rulesRes.data);
+
             } catch (error) {
-                console.error("Could not fetch audition status", error);
-                setStatusData({ isOpen: false, message: 'Could not verify audition status. Please try again later.' });
-            } finally {
-                setStatusLoading(false);
+                console.error("Failed to fetch audition info:", error);
+                setAuditionStatus({ 
+                    isOpen: false, 
+                    message: 'Could not verify audition status. Please try again later.',
+                    isLoading: false
+                });
             }
         };
-        fetchStatus();
+
+        fetchAuditionInfo();
     }, []);
+
+    // useEffect(() => {
+    //     const fetchStatus = async () => {
+    //         try {
+    //             const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5001';
+    //             const res = await axios.get(`${BACKEND_URL}/api/audition-status`);
+    //             setStatusData({ 
+    //                 isOpen: res.data.areAuditionsOpen, 
+    //                 message: res.data.messageWhenClosed 
+    //             });
+    //         } catch (error) {
+    //             console.error("Could not fetch audition status", error);
+    //             setStatusData({ isOpen: false, message: 'Could not verify audition status. Please try again later.' });
+    //         } finally {
+    //             setStatusLoading(false);
+    //         }
+    //     };
+    //     fetchStatus();
+    // }, []);
 
     // --- useEffect TO FETCH AUDITION RULES ---
     useEffect(() => {
@@ -192,19 +226,26 @@ const AuditionsPage = () => {
         }
     };
 
-    if (statusLoading) {
-        return <div className="loading-fullscreen"><FaSpinner className="loading-spinner" /> Verifying Audition Status...</div>;
-    }
-
-    if (!statusData.isOpen) {
+    if (auditionStatus.isLoading) {
         return (
-            <div className="auditions-closed-container">
-                <h1>Auditions Are Closed</h1>
-                <p>{statusData.message}</p>
-                <Link to="/" className="audition-form__button--submit">Back to Home</Link>
+            <div className="auditions-page-wrapper loading-fullscreen">
+                <FaSpinner className="loading-spinner" /> Verifying Audition Status...
             </div>
         );
     }
+
+    if (!auditionStatus.isOpen) {
+        return (
+            <div className="auditions-page-wrapper">
+                <div className="auditions-closed-container">
+                    <h1>Auditions Are Currently Closed</h1>
+                    <p>{auditionStatus.message}</p>
+                    <Link to="/" className="audition-form__button--submit">Back to Home</Link>
+                </div>
+            </div>
+        );
+    }
+
 
 
     const pageVariants = {
