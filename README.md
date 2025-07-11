@@ -7,7 +7,7 @@ Welcome to the official repository for the NOX Dance Society website. This full-
 ## Live Demo
 
 - **Public Website:** (https://noxdancesociety.com) 
-- **Admin Panel:** (https://noxdancesociety/admin/login) 
+- **Admin Panel:** (https://noxdancesociety.com/admin/login) 
 
 ## Features
 
