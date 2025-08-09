@@ -304,3 +304,146 @@ select {
     font-weight: 600;
     color: #8a8a9e;
 }
+
+
+
+/* Add these new styles to your existing ManagePages.css */
+/* ... (all existing styles) ... */
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.action-button.primary { /* For main actions like Divide into Slots */
+    background: linear-gradient(90deg, #a855f7, #8b5cf6);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+}
+.action-button.primary:hover {
+    background: linear-gradient(90deg, #8b5cf6, #a855f7);
+    box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.action-button.secondary { /* For secondary actions like Remove Slotting */
+    background: transparent;
+    border: 1px solid #4b5563;
+    color: #9ca3af;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.action-button.secondary:hover {
+    background-color: #374151;
+    color: #e5e7eb;
+}
+
+
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 2rem; /* Add space below filters */
+}
+
+.view-toggle-buttons {
+    display: flex;
+    background-color: #1A1724;
+    border-radius: 6px;
+    padding: 4px;
+    border: 1px solid #302840;
+    margin-left: auto; /* Push to the right */
+}
+.view-toggle-buttons button {
+    background: transparent;
+    border: none;
+    color: #9ca3af;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.view-toggle-buttons button.active {
+    background-color: #a855f7;
+    color: white;
+}
+
+
+/* Slot View Styles */
+.slots-view-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+.slot-group {
+    /* Styles for the container of a single slot's title and table */
+}
+.slot-group-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #c084fc;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+.slot-group-title span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #8a8a9e;
+    margin-left: 0.5rem;
+}
+
+
+/* Add these new styles to your existing ManagePages.css */
+/* ... (all existing styles) ... */
+
+.action-button.delete-all {
+    background-color: #b91c1c; /* A strong red */
+    border: 1px solid #f87171;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.2s, transform 0.2s;
+}
+.action-button.delete-all:hover:not(:disabled) {
+    background-color: #991b1b; /* Darker red on hover */
+    transform: translateY(-2px);
+}
+.action-button.delete-all:disabled {
+    background-color: #4b5563;
+    border-color: #6b7280;
+    color: #9ca3af;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Add this to ManagePages.css */
+.loading-spinner-inline {
+    animation: spin 1s linear infinite;
+}
+/* You may already have the @keyframes spin rule from the main loading spinner */

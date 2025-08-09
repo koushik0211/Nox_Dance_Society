@@ -21,7 +21,13 @@ const auditionSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Review'
     }], 
+     timeSlot: {
+        type: String,
+        trim: true,
+        default: 'Unassigned' // Default value
+    },
     submissionDate: { type: Date, default: Date.now },
+    
 });
 
 const Audition = mongoose.model('Audition', auditionSchema);

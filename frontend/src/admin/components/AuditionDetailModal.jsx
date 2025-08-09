@@ -43,18 +43,18 @@ const AuditionDetailModal = ({ isOpen, setIsOpen, audition, onUpdate, judgeName 
     };
     
     const handleStatusChange = async (newStatus) => {
-        if (window.confirm(`Are you sure you want to mark this candidate as "${newStatus}"?`)) {
+        // if (window.confirm(`Are you sure you want to mark this candidate as "${newStatus}"?`)) {
             try {
                 await auditionService.updateStatus(audition._id, { status: newStatus }, getIdToken);
                 onUpdate(); // Trigger refetch to show the new status immediately
             } catch (err) {
                 alert("Failed to update status.");
             }
-        }
+        
     };
     
     const handleDeleteReview = async (reviewId) => {
-        if (window.confirm("Are you sure you want to delete this review? This action cannot be undone.")) {
+        // if (window.confirm("Are you sure you want to delete this review? This action cannot be undone.")) {
             try {
                 await auditionService.removeReview(audition._id, reviewId, getIdToken);
                 alert("Review deleted.");
@@ -62,7 +62,7 @@ const AuditionDetailModal = ({ isOpen, setIsOpen, audition, onUpdate, judgeName 
             } catch (err) {
                 alert(`Error: ${err.response?.data?.message || "Failed to delete review."}`);
             }
-        }
+        
     };
     
     const hasUserReviewed = audition.reviews.some(review => 

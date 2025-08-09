@@ -80,7 +80,7 @@ const Footer = () => {
                         Copyright © {currentYear} NOX. All Rights Reserved.
                     </p>
                     <p className="designed-by">
-                        Designed by <span className="highlight">Koushik</span>.
+                        Build and Designed by <a target="_blank" rel="noreferrer" href='http://www.linkedin.com/in/gnana-koushik-v-386223264' className="highlight">Koushik</a>.
                     </p>
                 </motion.div>
             </div>

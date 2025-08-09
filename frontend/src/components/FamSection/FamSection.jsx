@@ -22,8 +22,9 @@ const FamSection = () => {
 
     // Option B: Use paths from the 'public' folder
     const famImages = [
+        '/assets/fam2.jpg',
         '/assets/fam1.jpg', // Your original image path
-        '/assets/fam2.jpg', // Example: Add more paths relative to /public
+         // Example: Add more paths relative to /public
         '/assets/fam3.jpg',
         '/assets/fam5.jpg',
         // Add paths to all the images you want in the slider

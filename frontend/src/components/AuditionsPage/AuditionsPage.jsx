@@ -44,8 +44,6 @@ const AuditionsPage = () => {
 
 
 
-
-
     const initialFormData = {
         fullName: '', rollNumber: '', phoneNumber: '', emailAddress: '',
         branch: '', rateYourself: '', whyNox: '',
@@ -265,7 +263,7 @@ const AuditionsPage = () => {
                     <motion.div variants={itemVariants}><InputField id="rollNumber" name="rollNumber" label="Roll Number*" placeholder="Enter your roll number" value={formData.rollNumber} onChange={handleChange} disabled={isSubmitting} /></motion.div>
                     <motion.div variants={itemVariants}><InputField id="rateYourself" name="rateYourself" label="Rate yourself in dance out of 10*" type="number" placeholder="Enter Rating" value={formData.rateYourself} onChange={handleChange} disabled={isSubmitting} /></motion.div>
                     <motion.div variants={itemVariants}><InputField id="phoneNumber" name="phoneNumber" label="Whatsapp Phone Number*" type="tel" placeholder="Enter your phone number" value={formData.phoneNumber} onChange={handleChange} disabled={isSubmitting} /></motion.div>
-                    <motion.div variants={itemVariants}><InputField id="emailAddress" name="emailAddress" label="Thapar Mail-id*" type="email" placeholder="Enter your email address" value={formData.emailAddress} onChange={handleChange} disabled={isSubmitting} /></motion.div>
+                    <motion.div variants={itemVariants}><InputField id="emailAddress" name="emailAddress" label="Email ID*" type="email" placeholder="Enter your Thapar or personal address" value={formData.emailAddress} onChange={handleChange} disabled={isSubmitting} /></motion.div>
                     <motion.div variants={itemVariants}><TextAreaField id="whyNox" name="whyNox" label="Why do you want to join Nox?*" placeholder="Share your thoughts..." value={formData.whyNox} onChange={handleChange} disabled={isSubmitting} /></motion.div>
                     <motion.div variants={itemVariants}><TextAreaField id="otherSkills" name="otherSkills" label="Any Other skills beside dance?*" placeholder="Eg:- Photo editing,video editing etc." value={formData.otherSkills} onChange={handleChange} disabled={isSubmitting} /></motion.div>
  <motion.div variants={itemVariants} className="audition-form__group--full-span">

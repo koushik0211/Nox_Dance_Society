@@ -20,8 +20,7 @@ const AboutSection = () => {
          // Replace with your actual image path
         '/assets/about1.jpg',       // Example placeholder
         '/assets/about2.jpg',       // Example placeholder
-        '/assets/about3.jpg',       // Example placeholder
-        '/assets/about4.jpg',       // Example placeholder
+        '/assets/ooo.png',       // Example placeholder
     ];
 
     // Framer Motion Variants
@@ -94,7 +93,7 @@ const AboutSection = () => {
                 <motion.div className="about-content" variants={textVariants}>
                     <h2 className="about-heading">ABOUT <span className="highlight">NOX</span></h2>
                     <p className="about-description">
-                        NOX is more than just a dance group; it's a dynamic community of passionate individuals who believe in the power of movement and rhythm. From Basic party moves to urban grooves, we embrace all forms of, hip-hop, and freestyle—offering a platform for creativity, collaboration, and self-expression. Dance is life for everyone in this society and we hope to continue this enthusiasm all the way.
+                        NOX is more than just a dance group; it's a dynamic community of passionate individuals who believe in the power of movement and rhythm. From Basic party moves to urban grooves, we embrace all forms of, hip-hop, and freestyle offering a platform for creativity, collaboration, and self-expression. Dance is life for everyone in this society and we hope to continue this enthusiasm all the way.
                     </p>
                 </motion.div>
             </div>
