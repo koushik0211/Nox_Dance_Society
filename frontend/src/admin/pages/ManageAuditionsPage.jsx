@@ -73,7 +73,7 @@ const ManageAuditionsPage = () => {
     };
 
     const handleDeleteEntry = async (id, name) => {
-        if (window.confirm(`Are you sure you want to delete the entire entry for ${name}?`)) {
+        // if (window.confirm(`Are you sure you want to delete the entire entry for ${name}?`)) {
             try {
                 await auditionService.removeEntry(id);
                 alert("Entry deleted successfully.");
@@ -83,7 +83,7 @@ const ManageAuditionsPage = () => {
                 setError(errorMessage);
                 alert(`Error: ${errorMessage}`);
             }
-        }
+        
     };
 
     const handleBulkDelete = async () => {
