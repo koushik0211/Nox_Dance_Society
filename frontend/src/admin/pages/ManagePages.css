@@ -447,3 +447,243 @@ select {
     animation: spin 1s linear infinite;
 }
 /* You may already have the @keyframes spin rule from the main loading spinner */
+
+/* Add these new styles to your existing ManagePages.css */
+
+/* ... (all existing styles for .manage-page, .action-buttons, .action-button, etc. remain the same) ... */
+
+/* NEW: Styles for the WhatsApp button */
+.action-button.whatsapp {
+    color: #25D366; /* WhatsApp Green */
+    border-color: #25d3663b; /* Faint green border */
+}
+.action-button.whatsapp:hover:not(:disabled) {
+    background-color: rgba(37, 211, 102, 0.1);
+    color: #4ade80; /* Brighter green on hover */
+}
+
+/* Add these styles to your existing ManagePages.css */
+
+/* ... (all existing styles for .manage-page, headers, filters, etc. remain the same) ... */
+
+/* --- Mobile Audition List Styles --- */
+.mobile-audition-list {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.audition-entry-card {
+    background: #110d1c;
+    border: 1px solid rgba(168, 85, 247, 0.15);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.entry-card__main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+}
+.entry-card__name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+/* The .status-badge class is already defined and will be reused here */
+
+.entry-card__meta-info {
+    font-size: 0.85rem;
+    color: #8a8a9e;
+    margin-bottom: 1rem;
+}
+.entry-card__meta-info strong {
+    color: #b0bec5;
+    font-weight: 500;
+}
+
+.entry-card__actions {
+    display: flex;
+    gap: 0.75rem;
+    border-top: 1px solid rgba(168, 85, 247, 0.1);
+    padding-top: 0.75rem;
+}
+.entry-card__actions .action-button {
+    flex-grow: 1; /* Make buttons take equal space */
+    padding: 0.6rem;
+    font-size: 0.85rem;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+/* --- Responsive Toggling --- */
+@media screen and (max-width: 768px) {
+    /* Hide the desktop table on mobile */
+    .manage-table-container.desktop-only {
+        display: none;
+    }
+    /* Show the mobile card list */
+    .mobile-audition-list.mobile-only {
+        display: flex;
+    }
+    /* Adjust header actions on mobile */
+    .header-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .judge-name-input-container {
+        width: 100%;
+    }
+}
+
+
+/* Add/Update these styles in your existing ManagePages.css */
+
+.manage-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem; /* Reduced bottom margin */
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(168, 85, 247, 0.2);
+}
+.manage-page-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* NEW: Combined controls bar */
+.page-controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #110d1c;
+    border-radius: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.1);
+}
+.filters-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-grow: 1; /* Allows filters to take up space */
+}
+.search-box, .filter-box {
+    /* Styles are mostly the same */
+    flex-grow: 1; /* Allow search to grow */
+    max-width: 300px;
+}
+.judge-name-input-container {
+    /* Styles are mostly the same */
+}
+.view-toggle-buttons {
+    margin-left: 0; /* No longer need to push to right */
+}
+
+/* NEW: Mobile Actions Dropdown */
+.mobile-actions-container {
+    position: relative;
+    display: none; /* Hidden on desktop by default */
+}
+.mobile-actions-trigger {
+    background: transparent;
+    border: 1px solid #302840;
+    color: #b0bec5;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.mobile-actions-trigger:hover {
+    background-color: #1A1724;
+}
+
+.mobile-actions-dropdown {
+    position: absolute;
+    top: calc(100% + 5px); /* Position below the trigger button */
+    right: 0;
+    background-color: #1A1724;
+    border: 1px solid #302840;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    z-index: 100;
+    width: 220px; /* Set a fixed width for the dropdown */
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+.dropdown-action-button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    padding: 0.7rem 1rem;
+    width: 100%;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+}
+.dropdown-action-button:hover:not(:disabled) {
+    background-color: rgba(168, 85, 247, 0.15);
+    color: #fff;
+}
+.dropdown-action-button.delete {
+    color: #f87171;
+}
+.dropdown-action-button.delete:hover:not(:disabled) {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #fca5a5;
+}
+.dropdown-action-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media screen and (max-width: 992px) {
+    /* Hide the desktop actions and show the mobile trigger */
+    .header-actions {
+        display: none;
+    }
+    .mobile-actions-container {
+        display: block;
+    }
+    .manage-page-header {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }
+    .page-controls-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filters-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box, .filter-box {
+        max-width: none; /* Allow them to go full width */
+    }
+}
+
+.mobile-audition-list {
+    display: flex; /* Changed from 'none' by default */
+    flex-direction: column;
+    gap: 1rem;
+}
