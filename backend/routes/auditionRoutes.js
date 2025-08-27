@@ -12,7 +12,8 @@ const {
     deleteAuditionEntry,
     scheduleAuditionSlots,
     deleteNotSelected,
-    exportAuditionsToCsv 
+    exportAuditionsToCsv,
+    rejectAllPending 
 } = require('../controllers/auditionController');
 
 const { protect, isAdmin } = require('../middleware/authMiddleware');
@@ -33,6 +34,9 @@ router.post('/schedule-slots', protect, isAdmin, scheduleAuditionSlots);
 // DELETE action for bulk-deleting 'Not Selected' entries
 // THIS MUST BE DEFINED BEFORE the '/:id' route
 router.delete('/not-selected', protect, isAdmin, deleteNotSelected);
+
+router.put('/reject-pending', protect, isAdmin, rejectAllPending);
+
 
 // GET action to export auditions to CSV
 router.get('/export', protect, isAdmin, exportAuditionsToCsv);

@@ -687,3 +687,60 @@ select {
     flex-direction: column;
     gap: 1rem;
 }
+
+/* Add/Update these styles in your existing ManagePages.css */
+/* ... (all existing styles) ... */
+
+/* Style for bulk delete button */
+.action-button.delete-all {
+    background-color: #b91c1c; /* A strong red */
+    border: 1px solid #f87171;
+    color: white;
+    /* ... other shared button styles ... */
+}
+.action-button.delete-all:hover:not(:disabled) {
+    background-color: #991b1b; /* Darker red on hover */
+    transform: translateY(-2px);
+}
+.action-button.delete-all:disabled {
+    background-color: #4b5563;
+    border-color: #6b7280;
+    color: #9ca3af;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* NEW: Style for bulk reject button */
+.action-button.reject-all {
+    background-color: #ca8a04; /* An amber/yellow color for warning but not as severe as red */
+    border: 1px solid #facc15;
+    color: white;
+}
+.action-button.reject-all:hover:not(:disabled) {
+    background-color: #a16207; /* Darker amber on hover */
+    transform: translateY(-2px);
+}
+.action-button.reject-all:disabled {
+    background-color: #4b5563;
+    border-color: #6b7280;
+    color: #9ca3af;
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Dropdown versions of the new buttons */
+.dropdown-action-button.delete {
+    color: #f87171;
+}
+.dropdown-action-button.delete:hover:not(:disabled) {
+    background-color: rgba(248, 113, 113, 0.1);
+    color: #fca5a5;
+}
+.dropdown-action-button.reject {
+    color: #facc15; /* Amber */
+}
+.dropdown-action-button.reject:hover:not(:disabled) {
+    background-color: rgba(250, 204, 21, 0.1);
+    color: #fde047;
+}

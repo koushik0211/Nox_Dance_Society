@@ -1,4 +1,4 @@
-// frontend/src/admin/components/Sidebar.js
+// // frontend/src/admin/components/Sidebar.js
 import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
@@ -62,3 +62,5 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
+
+

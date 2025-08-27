@@ -168,6 +168,7 @@ const deleteAuditionReview = async (req, res) => {
         // Remove the review reference from the Audition document
         await Audition.findByIdAndUpdate(auditionId, {
             $pull: { reviews: reviewId }
+            
         });
 
         // Delete the review document itself
@@ -355,6 +356,27 @@ const exportAuditionsToCsv = async (req, res) => {
     }
 };
 
+const rejectAllPending = async (req, res) => {
+    try {
+        const updateResult = await Audition.updateMany(
+            { status: 'Pending' },
+            { $set: { status: 'Not Selected' } }
+        );
+
+        if (updateResult.matchedCount === 0) {
+            return res.json({ message: 'No pending entries found to update.' });
+        }
+
+        res.json({ 
+            message: `Successfully updated ${updateResult.modifiedCount} pending entries to "Not Selected".`,
+            updatedCount: updateResult.modifiedCount
+        });
+    } catch (error) {
+        console.error("Error rejecting all pending entries:", error);
+        res.status(500).json({ message: 'Server error during bulk update.' });
+    }
+};
+
 
 module.exports = {
     registerAudition,
@@ -366,5 +388,6 @@ module.exports = {
     deleteAuditionEntry,
     scheduleAuditionSlots,
     deleteNotSelected,
-    exportAuditionsToCsv
+    exportAuditionsToCsv,
+    rejectAllPending
 };

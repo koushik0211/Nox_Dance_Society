@@ -3,6 +3,7 @@
 // FIX: Import useState, useEffect, createContext, and useContext from React
 import React, { createContext, useState, useContext, useEffect } from 'react'; 
 
+
 // FIX: Import the auth instance directly from your firebase config file
 import { auth } from '../../firebase'; 
 
@@ -13,6 +14,7 @@ const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
     const [adminUser, setAdminUser] = useState(null); 
+    
     const [loading, setLoading] = useState(true); 
 
     useEffect(() => {
@@ -64,3 +66,71 @@ export const AuthProvider = ({ children }) => {
 export const useAuth = () => {
     return useContext(AuthContext);
 }; 
+
+// src/admin/contexts/AuthContext.jsx
+// import React, { createContext, useState, useContext, useEffect } from 'react'; 
+// import { auth } from '../../firebase'; 
+// import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+// import { jwtDecode } from 'jwt-decode'; // npm install jwt-decode
+
+
+// const AuthContext = createContext(null);
+
+// export const AuthProvider = ({ children }) => {
+//     const [adminUser, setAdminUser] = useState(null); 
+//     const [userRole, setUserRole] = useState(null); // NEW: State for the user's role
+//     const [loading, setLoading] = useState(true); 
+
+//     useEffect(() => {
+//         const unsubscribe = onAuthStateChanged(auth, async (user) => {
+//             setAdminUser(user);
+//             if (user) {
+//                 // When user logs in, get their ID token to check for custom claims (like role)
+//                 const tokenResult = await user.getIdTokenResult();
+//                 // We set the role in Firebase using a script, e.g., { role: 'admin' }
+//                 setUserRole(tokenResult.claims.role || null); 
+//             } else {
+//                 // When user logs out, clear the role
+//                 setUserRole(null);
+//             }
+//             setLoading(false);
+//         });
+//         return () => unsubscribe(); 
+//     }, []); 
+
+//     const login = (email, password) => {
+//         return signInWithEmailAndPassword(auth, email, password);
+//     };
+
+//     const logout = () => {
+//         setUserRole(null); // Clear role on logout
+//         return signOut(auth);
+//     };
+
+//     const getIdToken = async () => {
+//         if (adminUser) {
+//             return await adminUser.getIdToken(true);
+//         }
+//         return null;
+//     };
+
+//     const value = {
+//         adminUser,
+//         userRole, // <-- EXPORT THE ROLE
+//         isLoggedIn: !!adminUser, 
+//         loading,
+//         login,
+//         logout,
+//         getIdToken
+//     };
+
+//     return (
+//         <AuthContext.Provider value={value}>
+//             {!loading && children} 
+//         </AuthContext.Provider>
+//     );
+// };
+
+// export const useAuth = () => {
+//     return useContext(AuthContext);
+// };

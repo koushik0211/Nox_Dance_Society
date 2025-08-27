@@ -1,4 +1,4 @@
-// backend/middleware/authMiddleware.js
+// // backend/middleware/authMiddleware.js
 const admin = require('../config/firebaseAdmin');
 
 const protect = async (req, res, next) => {
@@ -36,3 +36,47 @@ const isAdmin = (req, res, next) => {
 };
 
 module.exports = { protect, isAdmin };
+
+// backend/middleware/authMiddleware.js
+// const admin = require('../config/firebaseAdmin');
+
+// const protect = async (req, res, next) => {
+//     let token;
+//     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
+//         try {
+//             token = req.headers.authorization.split(' ')[1];
+//             const decodedToken = await admin.auth().verifyIdToken(token);
+            
+//             // Attach the full decoded token which includes custom claims
+//             req.user = decodedToken;
+            
+//             // IMPORTANT: We add the role from custom claims to req.user
+//             // You must set this custom claim on the Firebase user (see next step)
+//             req.user.role = decodedToken.role || null;
+
+//             next();
+//         } catch (error) {
+//             console.error('Firebase ID Token verification error:', error);
+//             return res.status(401).json({ message: 'Not authorized, token failed or expired' });
+//         }
+//     }
+//     if (!token) {
+//         return res.status(401).json({ message: 'Not authorized, no token' });
+//     }
+// };
+
+// // NEW: Flexible authorization middleware
+// // Usage: authorize('admin') or authorize('admin', 'member')
+// const authorize = (...roles) => {
+//     return (req, res, next) => {
+//         if (!req.user || !roles.includes(req.user.role)) {
+//             return res.status(403).json({ message: 'Forbidden: You do not have permission to perform this action.' });
+//         }
+//         next();
+//     };
+// };
+
+// // Deprecate the old isAdmin in favor of authorize('admin')
+// const isAdmin = authorize('admin');
+
+// module.exports = { protect, authorize, isAdmin }; // Export authorize

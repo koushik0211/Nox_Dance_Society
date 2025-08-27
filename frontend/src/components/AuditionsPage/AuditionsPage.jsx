@@ -40,7 +40,7 @@ const AuditionsPage = () => {
     //  Set this to `false` when auditions are closed.
     //  This is the only line you need to change to switch between the two views.
     // ===================================================================
-    const ARE_AUDITIONS_OPEN = true; 
+    const ARE_AUDITIONS_OPEN = false; 
 
 
 

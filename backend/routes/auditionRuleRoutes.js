@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { createRuleSet, getActiveRuleSet, getAllRuleSets, getRuleSetById, updateRuleSet, deleteRuleSet } = require('../controllers/auditionRuleController');
-const { protect, isAdmin } = require('../middleware/authMiddleware');
+const { protect, isAdmin,authorize } = require('../middleware/authMiddleware');
 
 // Public route to get the currently active rules for the main website
 router.get('/active', getActiveRuleSet); 

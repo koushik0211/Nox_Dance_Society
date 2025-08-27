@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { createTutorial, getAllTutorials, getTutorialById, updateTutorial, deleteTutorial } = require('../controllers/tutorialController');
-const { protect, isAdmin } = require('../middleware/authMiddleware');
+const { protect, isAdmin,authorize } = require('../middleware/authMiddleware');
 
 router.route('/')
     .get(getAllTutorials) // Public

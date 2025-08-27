@@ -89,5 +89,10 @@ const exportToCsv = async () => {
     }
 };
 
-const auditionService = { getAll, getById, addReview, updateStatus, removeEntry, removeReview, scheduleSlots,removeNotSelected,exportToCsv  };
+const rejectAllPending = async () => {
+    const config = await createAuthHeader();
+    return axios.put(`${API_URL}/reject-pending`, {}, config); // Send empty object as data for PUT request
+};
+
+const auditionService = { getAll, getById, addReview, updateStatus, removeEntry, removeReview, scheduleSlots,removeNotSelected,exportToCsv, rejectAllPending  };
 export default auditionService;

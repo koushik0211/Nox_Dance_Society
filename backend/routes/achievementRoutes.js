@@ -2,7 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const { createAchievement, getAllAchievements, getAchievementById, updateAchievement, deleteAchievement } = require('../controllers/achievementController');
-const { protect, isAdmin } = require('../middleware/authMiddleware');
+const { protect, isAdmin,authorize } = require('../middleware/authMiddleware');
 
 router.route('/')
     .get(getAllAchievements) // Public
